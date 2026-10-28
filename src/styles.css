@@ -231,6 +231,14 @@
 .portal-outline { background: rgb(255 255 255 / 12%); color: #fff; border: 2px solid #ffd1ea; box-shadow: 0 0 16px rgb(255 110 199 / 60%); }
 .portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
 .footer-panel { background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 24px rgb(255 110 199 / 28%); }
+/* Blurred-art wash: turquoise, lilac, gold and soft-pink blobs over the pink base, echoing the blurred cover art. */
+.footer-art {
+  background:
+    radial-gradient(85% 110% at 88% 8%, rgb(34 230 218 / 40%), transparent 55%),
+    radial-gradient(70% 95% at 10% 100%, rgb(183 140 255 / 42%), transparent 60%),
+    radial-gradient(55% 70% at 62% 108%, rgb(255 201 77 / 32%), transparent 55%),
+    radial-gradient(75% 85% at 0% 12%, rgb(255 110 199 / 46%), transparent 62%);
+}
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
 .footer-themed { background: var(--footer-background); color: var(--footer-foreground); border-color: var(--footer-border); box-shadow: var(--footer-shadow); backdrop-filter: none; }
 .about-section .footer-themed p { text-shadow: none; }
