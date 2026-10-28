@@ -93,6 +93,8 @@
 .hero-tagline { text-shadow: var(--hero-shadow); font-weight: 500; }
 .hero-badge { background: var(--glass); border: 1px solid var(--glass-border); backdrop-filter: blur(12px); text-shadow: var(--hero-shadow); }
 .hero-scroll { border: 1px solid var(--glass-border); border-radius: 50%; padding: 10px; background: var(--glass); backdrop-filter: blur(8px); }
+.hero-button { background: var(--hero-button); }
+.hero-button:hover { background: var(--background); }
 .track-card, .content-card { background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow-soft); }
 .track-card { min-height: 220px; }
 .featured-card { border: 2px solid var(--aqua); }
