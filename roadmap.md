@@ -10,4 +10,4 @@
 - [x] Match navigation SHA lettering to the banner and verify both pages.
 - [x] Revise the banner cities using the homepage city reference and inspect the result.
 - [x] Simplify navigation lettering and revise banner wording with a distant mystical city.
-- [ ] Restore the banner's clouded sunset sky without changing the original single-layer city or wording.
+- [x] Restore the banner's clouded sunset sky without changing the original single-layer city or wording.
