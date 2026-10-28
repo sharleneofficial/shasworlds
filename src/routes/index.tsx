@@ -10,7 +10,7 @@ import worldFilm from "@/assets/world-film.jpg";
 import worldFashion from "@/assets/world-fashion.jpg";
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
-import profile from "@/assets/sha-about-portrait.png.asset.json";
+import profile from "@/assets/sha-about-frameless.jpg";
 import aboutBg from "@/assets/about-bright-pink.jpg";
 import cover01 from "@/assets/ep-cover.jpg";
 import cover02 from "@/assets/cover-02.jpg";
@@ -224,7 +224,7 @@ function Index() {
       <section id="about" className="about-section relative isolate scroll-mt-24 overflow-hidden px-5 pb-10 pt-24">
         <img src={aboutBg} alt="" aria-hidden="true" loading="lazy" width={1376} height={768} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-start">
-          <img src={profile.url} alt="SHA portrait" loading="lazy" className="about-portrait h-60 w-60 shrink-0 rounded-full object-cover md:h-72 md:w-72" />
+          <img src={profile} alt="SHA portrait" loading="lazy" className="about-portrait h-60 w-60 shrink-0 rounded-full object-cover md:h-72 md:w-72" />
           <div className="text-center md:text-left">
             <h2 className="font-display text-3xl font-light uppercase md:text-4xl">About SHA</h2>
             <p className="mt-4 leading-relaxed opacity-95">SHA is a multidimensional creator, wayshower, and visionary architect of New Earth. She merges music, film, fashion, and immersive technology to channel frequencies that awaken consciousness and elevate culture.</p>
