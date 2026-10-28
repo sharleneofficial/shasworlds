@@ -6,6 +6,7 @@
 
 @theme inline {
   --font-display: "Outfit", ui-sans-serif, sans-serif;
+  --font-hero: "Cormorant Garamond", Georgia, serif;
   --font-brand: "Syne", ui-sans-serif, sans-serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
@@ -101,7 +102,7 @@
 /* Hero */
 .cinematic-hero { color: var(--hero-foreground); }
 .cinematic-hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-scrim); z-index: -10; }
-.hero-title { color: #fff; text-shadow: 0 0 14px rgb(255 46 154 / 75%), 0 0 42px rgb(255 46 154 / 45%), var(--hero-shadow); line-height: 0.95; letter-spacing: 0.01em; }
+.hero-title { font-family: var(--font-hero); color: #fff; text-shadow: 0 4px 24px rgb(40 20 60 / 35%); line-height: 1; letter-spacing: 0.01em; }
 .hero-tagline { text-shadow: var(--hero-shadow); }
 .hero-sub { text-shadow: var(--hero-shadow); opacity: 0.92; }
 .hero-scroll { border: 1px solid var(--glass-border); border-radius: 50%; padding: 10px; background: var(--glass); backdrop-filter: blur(8px); color: #fff; }
@@ -169,3 +170,17 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Track cover art — blurred until published */
+.vault-cover { border: 1px solid rgb(255 255 255 / 35%); }
+.cover-blurred { filter: blur(18px) saturate(1.3); transform: scale(1.2); }
+
+/* About + footer */
+.about-section { color: #fff; }
+.about-section h2, .about-section p { text-shadow: 0 2px 10px rgb(120 40 120 / 35%); }
+.about-portrait { border: 3px solid #ffd1ea; box-shadow: 0 0 18px #ff6ec7, 0 0 50px rgb(255 110 199 / 55%); }
+.portal-outline { background: rgb(255 255 255 / 12%); color: #fff; border: 2px solid #ffd1ea; box-shadow: 0 0 16px rgb(255 110 199 / 60%); }
+.portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
+.footer-panel { background: rgb(255 255 255 / 20%); border: 1.5px solid rgb(255 255 255 / 55%); backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 0 30px rgb(255 110 199 / 25%); }
+.footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
+.portal-form { border: 1.5px solid #ffd1ea; background: rgb(255 255 255 / 12%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
