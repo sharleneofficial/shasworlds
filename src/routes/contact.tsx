@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Gem, Globe, Instagram, Mail, Music2, Send, Youtube } from "lucide-react";
+import { Gem, Globe, Instagram, Mail, Music2, Send, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactGroups, contactIntro, type ContactIcon } from "@/lib/contact-links";
 import garden from "@/assets/about-bright-pink.jpg";
@@ -48,7 +48,7 @@ function ContactPage() {
               const mailto = link.href.startsWith("mailto:");
               return <Button key={link.label} asChild variant="outline" className="contact-link h-auto min-h-12 w-full whitespace-normal rounded-lg px-5 py-3">
                 <a href={link.href} target={mailto ? undefined : "_blank"} rel="noreferrer" className="flex items-center justify-center gap-3">
-                  <Icon className="size-5 shrink-0" />{link.label}{mailto ? <Mail /> : <ArrowUpRight />}
+                  <Icon className="size-5 shrink-0" />{link.label}
                 </a>
               </Button>;
             })}
