@@ -7,7 +7,7 @@ import epRoom from "@/assets/ep-room.png.asset.json";
 import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
 import worldMusic from "@/assets/world-music.jpg";
 import worldFilm from "@/assets/world-film.jpg";
-import worldFashionAsset from "@/assets/world-fashion-runway-3.png.asset.json";
+import worldFashionAsset from "@/assets/world-fashion-runway-4.png.asset.json";
 const worldFashion = worldFashionAsset.url;
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
@@ -53,12 +53,17 @@ const worlds = [
   { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Build the new Earth. Immersive experiences that connect, transform, and elevate." },
 ];
 
-const saga: { n: string; tag: string; title: string; text: string; img: string | null; video?: string; imgRight: string | null; locked: boolean; mystery: boolean; featured: boolean }[] = [
-  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: null, video: pypdVideo.url, imgRight: null, locked: false, mystery: true, featured: false },
+const saga: { n: string; tag: string; title: string; text: string; img: string | null; video?: string; imgRight: string | null; locked: boolean; mystery: boolean; featured: boolean; href?: string; links?: { label: string; href: string }[] }[] = [
+  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: null, video: pypdVideo.url, imgRight: null, locked: false, mystery: true, featured: false, href: "https://pypd.shasworlds.com/" },
   { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false, featured: false },
   { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false, featured: false },
   { n: "02", tag: "Sha's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: profile, imgRight: vaultRoom.url, locked: false, mystery: false, featured: true },
-  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: null, video: stopVideo.url, imgRight: null, locked: false, mystery: false, featured: false },
+  // STOP publication: same Listen / Watch / Collect destinations as the live shasworlds.com release page.
+  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: null, video: stopVideo.url, imgRight: null, locked: false, mystery: false, featured: false, links: [
+    { label: "Listen", href: "https://open.spotify.com/track/6VmS6D7vxrZAknL9dm9V2B" },
+    { label: "Watch", href: "https://www.youtube.com/@ShasWorldsVEVO" },
+    { label: "Collect", href: "https://www.tensor.trade/trade/stop" },
+  ] },
 ];
 
 const XIcon = (p: { className?: string }) => (
@@ -198,28 +203,44 @@ function Index() {
           <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
           <ol className="saga-line relative mt-12 space-y-5">
-            {saga.map((m, i) => (
-              <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""} ${m.featured ? "saga-card-featured" : ""}`}>
-                {m.video ? (
-                  <video src={m.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
-                ) : m.img ? (
-                  <img src={m.img} alt="" aria-hidden="true" loading="lazy" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
-                ) : (
-                  <div className="vault-icon flex h-20 w-24 shrink-0 items-center justify-center rounded-xl"><Lock className="h-6 w-6" /></div>
-                )}
-                <div className="min-w-0 flex-1">
-                  <p className="saga-tag text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
-                  <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
-                  <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
-                </div>
-                {m.imgRight && (
-                  <img src={m.imgRight} alt="" aria-hidden="true" loading="lazy" className={`saga-thumb hidden h-20 w-24 shrink-0 rounded-xl object-cover sm:block ${m.locked ? "saga-thumb-blur" : ""}`} />
-                )}
-                {m.mystery && (
-                  <div className="vault-icon hidden h-14 w-14 shrink-0 items-center justify-center rounded-full sm:flex"><CircleHelp className="h-6 w-6" /></div>
-                )}
-              </li>
-            ))}
+            {saga.map((m, i) => {
+              const body = (
+                <>
+                  {m.video ? (
+                    <video src={m.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
+                  ) : m.img ? (
+                    <img src={m.img} alt="" aria-hidden="true" loading="lazy" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
+                  ) : (
+                    <div className="vault-icon flex h-20 w-24 shrink-0 items-center justify-center rounded-xl"><Lock className="h-6 w-6" /></div>
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="saga-tag text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
+                    <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
+                    {m.links && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {m.links.map((l) => (
+                          <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="saga-link text-[10px] font-bold uppercase">{l.label}</a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  {m.imgRight && (
+                    <img src={m.imgRight} alt="" aria-hidden="true" loading="lazy" className={`saga-thumb hidden h-20 w-24 shrink-0 rounded-xl object-cover sm:block ${m.locked ? "saga-thumb-blur" : ""}`} />
+                  )}
+                  {m.mystery && (
+                    <div className="vault-icon hidden h-14 w-14 shrink-0 items-center justify-center rounded-full sm:flex"><CircleHelp className="h-6 w-6" /></div>
+                  )}
+                </>
+              );
+              return (
+                <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""} ${m.featured ? "saga-card-featured" : ""}`}>
+                  {m.href ? (
+                    <a href={m.href} target="_blank" rel="noreferrer" aria-label={`${m.title} — opens the publication in a new tab`} className="contents cursor-pointer">{body}</a>
+                  ) : body}
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
