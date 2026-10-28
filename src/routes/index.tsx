@@ -1,24 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Lock, Music, Film, Shirt, Orbit, Sparkles, ArrowRight, Youtube, Instagram, Send, Disc3 } from "lucide-react";
+import { Lock, Film, Shirt, Orbit, ArrowRight, Youtube, Instagram, Send, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
-import epCover from "@/assets/ep-cover.jpg";
+import epRoom from "@/assets/ep-room.png.asset.json";
 import worldMusic from "@/assets/world-music.jpg";
 import worldFilm from "@/assets/world-film.jpg";
 import worldFashion from "@/assets/world-fashion.jpg";
 import worldTech from "@/assets/world-tech.jpg";
-import profile from "@/assets/sha-profile.png.asset.json";
-import banner from "@/assets/sha-banner.png.asset.json";
 import { tracks } from "@/lib/tracks";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SHA's Worlds — Multidimensional Creator of Worlds" },
-      { name: "description", content: "SHA: where creativity meets consciousness. Music, film, fashion and immersive technology from New Earth." },
-      { property: "og:title", content: "SHA's Worlds — Multidimensional Creator of Worlds" },
-      { property: "og:description", content: "The Debut EP transmits sequentially starting January. Enter the era." },
+      { title: "SHASWORLDS — Where Creativity Meets Consciousness" },
+      { name: "description", content: "SHA: music, film, fashion and immersive technology. One multidimensional world. The Debut EP transmits sequentially starting January." },
+      { property: "og:title", content: "SHASWORLDS — Where Creativity Meets Consciousness" },
+      { property: "og:description", content: "The Debut EP transmits sequentially starting January. Enter the world." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -27,18 +25,27 @@ export const Route = createFileRoute("/")({
 });
 
 const nav = [
-  { href: "#portal", label: "The Portal" },
-  { href: "#ep", label: "Debut EP" },
-  { href: "#worlds", label: "Multidimensional Worlds" },
-  { href: "#saga", label: "The Saga" },
+  { href: "#portal", label: "Home" },
+  { href: "#worlds", label: "Worlds" },
+  { href: "#ep", label: "Music" },
+  { href: "#saga", label: "Saga" },
   { href: "#about", label: "About" },
+  { href: "#connect", label: "Portal" },
 ];
 
 const worlds = [
-  { icon: Music, title: "Music", img: worldMusic, text: "The vibrational foundation and sonic transmissions." },
-  { icon: Film, title: "Film & Narrative", img: worldFilm, text: "Cinematic universes, music video storylines, and transmedia world-building." },
-  { icon: Shirt, title: "Fashion", img: worldFashion, text: "Wearable dimensional expressions, futuristic aesthetics, and physical-digital concepts." },
-  { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Spatial computing, digital consciousness, and future media exploration." },
+  { icon: AudioWaveform, title: "Music", img: worldMusic, text: "Sound as frequency. Elevated music that awakens, heals, and expands." },
+  { icon: Shirt, title: "Fashion", img: worldFashion, text: "Wear the future. High-fashion as expression, identity, and art." },
+  { icon: Film, title: "Film & Narrative", img: worldFilm, text: "Stories that shift realities. Cinematic worlds that mirror the journey within." },
+  { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Build the new Earth. Immersive experiences that connect, transform, and elevate." },
+];
+
+const saga = [
+  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: epRoom.url, locked: false, mystery: true },
+  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, locked: true, mystery: false },
+  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, locked: true, mystery: false },
+  { n: "02", tag: "The Saga's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: epRoom.url, locked: false, mystery: false },
+  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: hero.url, locked: false, mystery: false },
 ];
 
 const XIcon = (p: { className?: string }) => (
@@ -54,16 +61,9 @@ const socials = [
   { label: "Instagram", href: "#", icon: Instagram },
 ];
 
-function Eyebrow({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="hero-badge inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] font-medium uppercase sm:text-xs">
-      <Sparkles className="h-3.5 w-3.5" /> {children}
-    </span>
-  );
-}
-
 function Index() {
   const [scrolled, setScrolled] = useState(false);
+  const [joined, setJoined] = useState(false);
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 32);
     update();
@@ -74,142 +74,157 @@ function Index() {
     <div className="min-h-screen">
       <header className={`site-header fixed inset-x-0 top-0 z-50 ${scrolled ? "is-scrolled" : ""}`}>
         <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 md:px-10">
-          <a href="#portal" className="font-display text-2xl font-extrabold">SHA</a>
-          <ul className="hidden gap-7 text-xs font-medium lg:flex">
+          <a href="#portal" className="brand-mark font-display text-2xl font-extrabold leading-none">
+            SHA
+            <span className="brand-sub block text-[8px] font-semibold uppercase">Creator of Worlds</span>
+          </a>
+          <ul className="hidden gap-7 text-xs font-semibold uppercase lg:flex">
             {nav.map((n) => <li key={n.href}><a href={n.href} className="nav-link">{n.label}</a></li>)}
           </ul>
-          <Button asChild className="rounded-full px-5"><a href="#ep">Enter the Era <ArrowRight /></a></Button>
+          <Button asChild variant="neon" className="rounded-full px-5 uppercase"><a href="#ep">Enter the Portal</a></Button>
         </nav>
       </header>
 
-      <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden">
+      {/* Hero */}
+      <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center overflow-hidden">
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
-        <div className="hero-content mx-auto flex max-w-3xl flex-col items-center px-5 pb-24 pt-32 text-center">
-          <Eyebrow>Multidimensional Creator of Worlds</Eyebrow>
-          <h1 className="hero-title mt-6 font-sans text-8xl font-extrabold sm:text-9xl">SHA</h1>
-          <p className="hero-tagline mt-5 max-w-xl text-base leading-relaxed sm:text-lg">
-            Where creativity meets consciousness. Exploring the convergence of music, film, fashion, and immersive technology.
+        <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
+          <h1 className="hero-title font-display text-[clamp(2.5rem,7vw,6rem)] font-extrabold uppercase leading-none">Shasworlds</h1>
+          <p className="hero-tagline mt-6 max-w-md text-2xl font-semibold leading-snug sm:text-3xl">
+            Where creativity<br />meets consciousness.
           </p>
-          <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild variant="electric" size="lg" className="h-12 w-full rounded-full px-6 sm:w-auto"><a href="#ep">Explore the Debut EP <ArrowRight /></a></Button>
-            <Button asChild variant="hero" size="lg" className="h-12 w-full rounded-full px-6 sm:w-auto"><a href="#saga">The Journey & The Saga</a></Button>
+          <p className="hero-sub mt-4 max-w-md text-sm leading-relaxed sm:text-base">
+            Music. Film. Fashion. Technology.<br />One multidimensional world.
+          </p>
+          <div className="mt-9">
+            <Button asChild variant="neon" size="lg" className="h-12 rounded-full px-8 uppercase"><a href="#ep">Enter the World <ArrowRight /></a></Button>
           </div>
         </div>
         <a href="#ep" aria-label="Discover the Debut EP" className="hero-scroll absolute bottom-6 left-1/2 -translate-x-1/2"><ArrowRight className="h-5 w-5 rotate-90" /></a>
       </section>
 
       {/* EP */}
-      <section id="ep" className="ep-section scroll-mt-24 px-5 py-20">
+      <section id="ep" className="ep-section relative isolate scroll-mt-24 overflow-hidden px-5 py-24">
+        <img src={epRoom.url} alt="" aria-hidden="true" loading="lazy" className="ep-room-art absolute inset-0 -z-20 h-full w-full object-cover" />
+        <div className="ep-scrim absolute inset-0 -z-10" />
         <div className="mx-auto max-w-6xl">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold md:text-5xl">The Debut EP</h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">A four-track journey across New Earth. Transmitting sequentially starting January.</p>
-        </div>
-        <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.2fr]">
-          <div className="artwork-frame mx-auto w-full max-w-md">
-            <img src={epCover} alt="The Debut EP — era visual" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-lg object-cover" />
+          <div className="max-w-xl">
+            <p className="eyebrow text-xs font-bold uppercase">The Debut EP</p>
+            <h2 className="glow-heading mt-2 font-display text-4xl font-extrabold uppercase md:text-5xl">4-Track Rollout Vault</h2>
+            <p className="mt-5 text-sm leading-relaxed sm:text-base">
+              The rollout begins with four transmissions — each one unlocking a frequency, a theme, and a deeper layer of SHA's multidimensional identity.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed sm:text-base">
+              Tracks will be released monthly, leading up to the full EP and an expanded body of work that spans across music, film, fashion and immersive experiences.
+            </p>
+            <p className="eyebrow mt-8 text-xs font-bold uppercase">Track Highlights</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tracks.map((t, index) => (
-              <article key={t.label} className={`track-card vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-lg p-6 ${t.isLocked ? "" : "featured-card"}`}>
-                <img src={epCover} alt="" aria-hidden="true" loading="lazy" className="vault-art absolute inset-0 -z-20 h-full w-full object-cover" />
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-extrabold uppercase">{t.label}</h3>
-                  {t.isLocked ? <Lock className="vault-lock h-7 w-7" /> : <Sparkles className="vault-lock h-6 w-6" />}
+              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-2xl p-6 ${t.isLocked ? "" : "vault-live"}`}>
+                <div className="vault-icon mx-auto flex h-16 w-16 items-center justify-center rounded-full">
+                  {t.isLocked ? <Lock className="h-6 w-6" /> : <AudioWaveform className="h-7 w-7" />}
                 </div>
-                <p className={`vault-status mt-4 inline-flex items-center gap-2 rounded-full px-3 py-2 text-[10px] font-bold uppercase ${t.isLocked ? "" : "transmitting"}`}>
+                <h3 className="mt-5 text-xs font-bold uppercase opacity-80">{t.label}</h3>
+                <p className="mt-1 text-lg font-extrabold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
+                <p className={`vault-status mt-3 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-bold uppercase ${t.isLocked ? "" : "transmitting"}`}>
                   {!t.isLocked && <span className="status-dot h-1.5 w-1.5 rounded-full" />}
-                  {t.isLocked ? t.status : "Transmitting January"}
+                  {t.isLocked ? (index === 1 ? "Releasing Next" : "Coming Soon") : "Coming in January"}
                 </p>
-                <p className="vault-details mt-4 text-sm leading-relaxed">{t.details}</p>
+                <p className="mt-4 text-xs leading-relaxed opacity-90">{t.details}</p>
                 {!t.isLocked && (
                   t.preSaveUrl ? (
-                    <Button asChild className="mt-5 rounded-full"><a href={t.preSaveUrl} target="_blank" rel="noreferrer">Pre-Save</a></Button>
+                    <Button asChild variant="neon" className="mt-5 rounded-full uppercase"><a href={t.preSaveUrl} target="_blank" rel="noreferrer">Pre-Save</a></Button>
                   ) : (
-                    <Button disabled variant="outline" className="mt-5 h-auto min-h-9 whitespace-normal rounded-full text-xs">Pre-Save Link Coming Soon</Button>
+                    <Button disabled variant="outline" className="vault-presave mt-5 h-auto min-h-9 whitespace-normal rounded-full text-xs uppercase">Pre-Save Link Coming Soon</Button>
                   )
                 )}
               </article>
             ))}
           </div>
         </div>
-        </div>
       </section>
 
       {/* Worlds */}
-      <section id="worlds" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
-        <h2 className="mb-12 text-center text-4xl font-bold md:text-5xl">Multidimensional Worlds</h2>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {worlds.map(({ icon: Icon, title, img, text }) => (
-            <article key={title} className="content-card lift overflow-hidden rounded-lg">
-              <img src={img} alt={title} loading="lazy" width={800} height={1008} className="aspect-[4/3] w-full object-cover" />
-              <div className="p-5">
-                <Icon className="h-5 w-5 text-primary" />
-                <h3 className="mt-3 text-lg font-bold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Saga */}
-      <section id="saga" className="mx-auto max-w-5xl scroll-mt-24 px-5 py-20">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold md:text-5xl">The Saga</h2>
-          <p className="mt-4 text-muted-foreground">Historical milestones & origins.</p>
-        </div>
-        <ol className="relative space-y-8 border-l border-border pl-8">
-          {[
-            { n: "01", title: "STOP — The Prequel", tag: "Released as Sharlene", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The story of awakening from perceived limitation and becoming SHA." },
-            { n: "02", title: "PYPD & The NDA Album", tag: "The Saga's first publication", text: "The Saga's first publication and personal unfolding — what was discovered and channeled. PYPD acts as a pre-publication leading into the wider NDA journey." },
-          ].map((m) => (
-            <li key={m.n} className="content-card rounded-lg p-6">
-              <span className="absolute -left-[9px] mt-2 h-4 w-4 rounded-full bg-aqua" />
-              <div className="grid gap-5 md:grid-cols-[1fr_180px]">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{m.n} · {m.tag}</p>
-                  <h3 className="mt-2 text-2xl font-bold">{m.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
+      <section id="worlds" className="scroll-mt-24 px-5 py-24">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="glow-heading text-center font-display text-4xl font-extrabold uppercase md:text-5xl">4 Forms of Creation</h2>
+          <p className="mt-3 text-center text-sm uppercase sm:text-base">One vision. Infinite expressions.</p>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {worlds.map(({ icon: Icon, title, img, text }) => (
+              <article key={title} className="world-tile lift relative isolate overflow-hidden rounded-2xl">
+                <img src={img} alt={title} loading="lazy" width={800} height={1008} className="h-[420px] w-full object-cover" />
+                <div className="world-tile-overlay absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
+                  <div className="vault-icon flex h-14 w-14 items-center justify-center rounded-full">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-4 text-sm font-extrabold uppercase">{title}</h3>
+                  <p className="mt-2 text-xs leading-relaxed">{text}</p>
                 </div>
-                <div className="flex aspect-square items-center justify-center rounded-xl border border-dashed p-3 text-center text-xs text-muted-foreground">
-                  [Legacy Visual: {m.title}]
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      {/* About */}
-      <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
-        <div className="overflow-hidden border-y border-border">
-          <img src={banner.url} alt="SHA — Creator of Worlds" loading="lazy" className="aspect-[5/2] w-full object-cover" />
-          <div className="grid gap-8 p-8 md:grid-cols-[160px_1fr] md:p-12">
-            <img src={profile.url} alt="SHA" loading="lazy" className="relative -mt-24 h-36 w-36 rounded-full border-4 border-background object-cover md:-mt-28" />
-            <div>
-              <h2 className="text-3xl font-bold md:text-4xl">About SHA</h2>
-              <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-                SHA is an embodied wayshower, artist, and founder operating at the intersection of creative media and expanded consciousness.
-              </p>
-              <p className="mt-6 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">Creative Advisory & Ecosystem</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {["CyreneAI", "0xMyriadFlow", "SeekNirvanaHQ"].map((t) => (
-                  <span key={t} className="rounded-full bg-secondary px-4 py-1.5 text-sm text-secondary-foreground">{t}</span>
-                ))}
-              </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {socials.map(({ label, href, icon: Icon }) => (
-                  <Button key={label} asChild variant="outline" className="rounded-full"><a href={href} target="_blank" rel="noreferrer"><Icon className="h-4 w-4" /> {label}</a></Button>
-                ))}
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <footer className="py-10 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} SHA's Worlds · New Earth
+      {/* Saga */}
+      <section id="saga" className="scroll-mt-24 px-5 py-24">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="glow-heading text-center font-display text-4xl font-extrabold uppercase md:text-5xl">The Story Arc</h2>
+          <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
+          <ol className="saga-line relative mt-12 space-y-5">
+            {saga.map((m, i) => (
+              <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""}`}>
+                {m.img ? (
+                  <img src={m.img} alt="" aria-hidden="true" loading="lazy" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
+                ) : (
+                  <div className="vault-icon flex h-20 w-24 shrink-0 items-center justify-center rounded-xl"><Lock className="h-6 w-6" /></div>
+                )}
+                <div className="min-w-0 flex-1">
+                  <p className="text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
+                  <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
+                </div>
+                {m.mystery && (
+                  <div className="vault-icon hidden h-14 w-14 shrink-0 items-center justify-center rounded-full sm:flex"><CircleHelp className="h-6 w-6" /></div>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Connect / Footer */}
+      <footer id="connect" className="scroll-mt-24 px-5 pb-10 pt-20">
+        <div className="mx-auto grid max-w-6xl gap-10 border-t border-white/25 pt-10 md:grid-cols-3">
+          <div>
+            <p className="font-display text-2xl font-extrabold uppercase">Shasworlds</p>
+            <p className="mt-2 text-sm opacity-85">Where creativity meets consciousness.</p>
+            <p className="mt-6 text-xs opacity-70">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase opacity-75">Connect</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="social-orb flex h-11 w-11 items-center justify-center rounded-full">
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase opacity-75">Join the Portal</p>
+            <p className="mt-2 text-xs leading-relaxed opacity-85">Be the first to access releases, worlds, and multidimensional experiences.</p>
+            {joined ? (
+              <p className="mt-4 rounded-full px-4 py-3 text-xs font-semibold glass-chip">The portal opens soon — you're on the list.</p>
+            ) : (
+              <form className="mt-4 flex gap-2" onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
+                <input required type="email" placeholder="Enter your email" aria-label="Email address" className="portal-input h-11 w-full rounded-full px-4 text-sm" />
+                <Button type="submit" variant="neon" className="h-11 rounded-full px-4" aria-label="Join the portal"><ArrowRight /></Button>
+              </form>
+            )}
+          </div>
+        </div>
       </footer>
     </div>
   );
