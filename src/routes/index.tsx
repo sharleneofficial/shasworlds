@@ -89,7 +89,7 @@ function Index() {
       <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center overflow-hidden">
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
         <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
-          <h1 className="hero-title font-display text-[clamp(2.75rem,9vw,7.5rem)] font-extrabold uppercase leading-none">Shasworlds</h1>
+          <h1 className="hero-title font-display text-[clamp(2.5rem,7vw,6rem)] font-extrabold uppercase leading-none">Shasworlds</h1>
           <p className="hero-tagline mt-6 max-w-md text-2xl font-semibold leading-snug sm:text-3xl">
             Where creativity<br />meets consciousness.
           </p>
