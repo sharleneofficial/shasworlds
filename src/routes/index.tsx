@@ -58,7 +58,7 @@ const saga: { n: string; tag: string; title: string; text: string; img: string |
   { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: null, video: pypdVideo.url, imgRight: null, locked: false, mystery: true, featured: false },
   { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false, featured: false },
   { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false, featured: false },
-  { n: "02", tag: "Sha's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: shaSaga.url, imgRight: vaultRoom.url, locked: false, mystery: false, featured: true },
+  { n: "02", tag: "Sha's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: profile, imgRight: vaultRoom.url, locked: false, mystery: false, featured: true },
   { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: null, video: stopVideo.url, imgRight: null, locked: false, mystery: false, featured: false },
 ];
 
