@@ -185,6 +185,9 @@ function Index() {
                   <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
                   <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
                 </div>
+                {m.imgRight && (
+                  <img src={m.imgRight} alt="" aria-hidden="true" loading="lazy" className={`saga-thumb hidden h-20 w-24 shrink-0 rounded-xl object-cover sm:block ${m.locked ? "saga-thumb-blur" : ""}`} />
+                )}
                 {m.mystery && (
                   <div className="vault-icon hidden h-14 w-14 shrink-0 items-center justify-center rounded-full sm:flex"><CircleHelp className="h-6 w-6" /></div>
                 )}

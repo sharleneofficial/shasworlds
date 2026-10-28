@@ -128,8 +128,10 @@
 .vault-presave { background: rgb(255 255 255 / 14%); color: rgb(255 255 255 / 75%); border-color: rgb(255 255 255 / 30%); opacity: 1; }
 @keyframes transmission-pulse { 0%, 100% { box-shadow: 0 0 6px var(--neon-pink); } 50% { box-shadow: 0 0 22px var(--neon-pink); } }
 
-/* World tiles */
-.world-tile { box-shadow: var(--shadow-soft); border: 1px solid rgb(255 255 255 / 25%); color: #fff; }
+/* World tiles — full-bleed, edge to edge */
+.world-tile { color: #fff; }
+.world-tile img { transition: transform .4s ease; }
+.world-tile:hover img { transform: scale(1.04); }
 .world-tile-overlay { background: linear-gradient(180deg, transparent 30%, rgb(60 0 70 / 78%) 100%); }
 
 /* Saga */
@@ -137,6 +139,7 @@
 .saga-card { position: relative; background: rgb(255 255 255 / 10%); border: 1.5px solid rgb(255 255 255 / 30%); backdrop-filter: blur(12px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; }
 .saga-card::before { content: ""; position: absolute; left: -20px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px var(--neon-pink-soft); }
 .saga-thumb { border: 1px solid rgb(255 255 255 / 40%); }
+.saga-thumb-blur { filter: blur(5px) saturate(1.5); }
 .saga-locked { opacity: 0.85; }
 
 /* Footer */
