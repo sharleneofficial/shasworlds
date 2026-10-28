@@ -95,6 +95,8 @@
   --story-card-featured: #EE5FA5;
   --story-border: rgb(255 209 234 / 55%);
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
+  --contact-scrim: linear-gradient(105deg, rgb(115 30 105 / 88%) 0%, rgb(169 48 126 / 83%) 48%, rgb(157 73 160 / 77%) 100%);
+  --contact-link-background: color-mix(in srgb, var(--neon-pink-soft) 28%, transparent);
 }
 
 @layer base {
@@ -111,6 +113,13 @@
 .brand-sub { letter-spacing: 0.28em; opacity: 0.85; margin-top: 2px; }
 .nav-link { transition: opacity 200ms; letter-spacing: 0.12em; }
 .nav-link:hover { opacity: 0.7; }
+.nav-link[aria-current="page"] { text-decoration: underline; text-underline-offset: 7px; }
+.mobile-navigation { border-top: 1px solid var(--glass-border); }
+.contact-page { color: var(--hero-foreground); }
+.contact-scrim { background: var(--contact-scrim); }
+.contact-title { font-family: var(--font-hero); text-shadow: var(--hero-shadow); }
+.contact-link { background: var(--contact-link-background); color: var(--hero-foreground); border-color: var(--glass-border); }
+.contact-link:hover { background: var(--neon-pink); color: var(--hero-foreground); box-shadow: var(--pink-glow); }
 
 /* Hero */
 .cinematic-hero { color: var(--hero-foreground); }

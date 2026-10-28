@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Lock, Film, Shirt, Orbit, ArrowRight, Youtube, Instagram, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
 import epRoom from "@/assets/ep-room.png.asset.json";
@@ -32,19 +32,12 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: "The Debut EP transmits sequentially starting January. Enter the world." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:image", content: hero.url },
+      { name: "twitter:image", content: hero.url },
     ],
   }),
   component: Index,
 });
-
-const nav = [
-  { href: "#portal", label: "Home" },
-  { href: "#worlds", label: "Worlds" },
-  { href: "#ep", label: "Music" },
-  { href: "#saga", label: "Saga" },
-  { href: "#about", label: "About" },
-  { href: "#connect", label: "Portal" },
-];
 
 const worlds = [
   { icon: AudioWaveform, title: "Music", img: worldMusic, text: "Sound as frequency. Elevated music that awakens, heals, and expands." },
@@ -79,29 +72,9 @@ const socials = [
 ];
 
 function Index() {
-  const [scrolled, setScrolled] = useState(false);
   const [joined, setJoined] = useState(false);
-  useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 32);
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
   return (
     <div className="min-h-screen">
-      <header className={`site-header fixed inset-x-0 top-0 z-50 ${scrolled ? "is-scrolled" : ""}`}>
-        <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 md:px-10">
-          <a href="#portal" className="brand-mark text-2xl font-extrabold leading-none">
-            SHA
-            <span className="brand-sub block text-[8px] font-semibold uppercase">Creator of Worlds</span>
-          </a>
-          <ul className="hidden gap-7 text-xs font-semibold uppercase lg:flex">
-            {nav.map((n) => <li key={n.href}><a href={n.href} className="nav-link">{n.label}</a></li>)}
-          </ul>
-          <Button asChild variant="neon" className="rounded-full px-5 uppercase"><a href="#ep">Enter the Portal</a></Button>
-        </nav>
-      </header>
-
       {/* Hero */}
       <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center overflow-hidden">
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
@@ -217,6 +190,7 @@ function Index() {
                     <p className="saga-tag text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
                     <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
                     <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
+                    {m.href && <Button asChild variant="neon" size="sm" className="mt-3 rounded-full uppercase"><a href={m.href} target="_blank" rel="noreferrer">Enter the World <ArrowRight /></a></Button>}
                     {m.links && (
                       <div className="mt-3 flex flex-wrap gap-2">
                         {m.links.map((l) => (
@@ -235,9 +209,7 @@ function Index() {
               );
               return (
                 <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""} ${m.featured ? "saga-card-featured" : ""}`}>
-                  {m.href ? (
-                    <a href={m.href} target="_blank" rel="noreferrer" aria-label={`${m.title} — opens the publication in a new tab`} className="contents cursor-pointer">{body}</a>
-                  ) : body}
+                  {body}
                 </li>
               );
             })}
@@ -261,6 +233,10 @@ function Index() {
           <div>
             <p className="font-display text-3xl font-light uppercase">Sha&apos;s Worlds</p>
             <p className="mt-3 text-sm opacity-90">Where creativity meets consciousness.</p>
+            <div className="mt-4 flex flex-wrap gap-4 text-xs">
+              <Button asChild variant="ghost" size="sm" className="px-0"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World ↗</a></Button>
+              <Button asChild variant="ghost" size="sm" className="px-0"><Link to="/contact">Contact <ArrowRight /></Link></Button>
+            </div>
             <p className="mt-4 text-xs opacity-80">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
           </div>
           <div className="text-center md:px-6">

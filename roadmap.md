@@ -1,0 +1,4 @@
+- [ ] Simplify shared navigation and add Contact.
+- [ ] Make PYPD entrances visible in its story card and footer.
+- [ ] Redesign Contact with the live page's existing content and links.
+- [ ] Verify navigation, contact links, and page layouts.

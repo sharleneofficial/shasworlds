@@ -10,3 +10,5 @@
 <!-- LOVABLE:END -->
 
 - Keep visual theme colors and effects in src/styles.css and use Button variants for controls so the cinematic hero and solid content sections share one theme.
+- Mount the shared SiteHeader in the root layout so homepage and standalone content pages have consistent navigation.
+- Keep contact destinations in src/lib/contact-links.ts so the contact page preserves the existing live site's links independently of homepage social destinations.
