@@ -88,8 +88,8 @@
   --release-stamp-foreground: var(--hero-foreground);
   --release-stamp-shadow: var(--pink-glow);
   /* Luminous lilac-purple, matching the footer's former glass tone. */
-  --story-background: linear-gradient(168deg, #C17CCB 0%, #CD8AD4 55%, #DA98DE 100%);
-  --story-foreground: var(--hero-foreground);
+  --story-background: linear-gradient(180deg, var(--creation-heading-background) 0%, oklch(0.97 0.016 320) 18%, oklch(0.89 0.06 320) 45%, oklch(0.78 0.115 320) 78%, oklch(0.72 0.13 320) 100%);
+  --story-foreground: var(--creation-heading-foreground);
   /* Pink glass cards deep enough to keep white text readable over them. */
   --story-card: rgb(231 92 150 / 72%);
   --story-card-featured: #EE5FA5;
@@ -103,12 +103,12 @@
   --contact-link-hover: linear-gradient(135deg, #E06A9C 0%, #C2437D 100%);
   --creation-heading-background: #FFFFFF;
   --creation-heading-foreground: #34313A;
-  --footer-background: oklch(1 0 0);
-  --footer-foreground: oklch(0.31 0.015 320);
-  --footer-accent: oklch(0.48 0.12 355);
-  --footer-hover: oklch(0.95 0.025 350);
-  --footer-border: oklch(0.89 0.023 330);
-  --footer-shadow: 0 12px 36px -16px color-mix(in oklab, var(--footer-foreground) 30%, transparent);
+  --footer-background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8);
+  --footer-foreground: var(--hero-foreground);
+  --footer-accent: var(--hero-foreground);
+  --footer-hover: color-mix(in oklab, var(--contact-accent-deep) 65%, transparent);
+  --footer-border: color-mix(in oklab, var(--hero-foreground) 45%, transparent);
+  --footer-shadow: var(--shadow-soft);
 }
 
 @layer base {
@@ -232,16 +232,16 @@
 .portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
 .footer-panel { background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 24px rgb(255 110 199 / 28%); }
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
-.footer-light { background: var(--footer-background); color: var(--footer-foreground); border-color: var(--footer-border); box-shadow: var(--footer-shadow); backdrop-filter: none; }
-.about-section .footer-light p { text-shadow: none; }
+.footer-themed { background: var(--footer-background); color: var(--footer-foreground); border-color: var(--footer-border); box-shadow: var(--footer-shadow); backdrop-filter: none; }
+.about-section .footer-themed p { text-shadow: none; }
 .footer-link { background: transparent; color: var(--footer-accent); border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s; }
 .footer-link:hover, .footer-link:focus-visible { background: var(--footer-hover); color: var(--footer-accent); border-color: var(--footer-border); box-shadow: none; }
-.footer-social { background: var(--footer-hover); border-color: var(--footer-border); }
+.footer-social { background: var(--glass); border-color: var(--footer-border); }
 .footer-social:hover { border-color: var(--footer-accent); }
 @media (min-width: 768px) { .footer-connect { border-left: 1px solid var(--footer-border); } }
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
-/* Lilac frames the pink chapters; the white footer provides the final quiet contrast. */
+/* White behind the heading deepens gradually into luminous lilac down the timeline. */
 #saga { background: var(--story-background); color: var(--story-foreground); }
 #saga .glow-heading { color: var(--story-foreground); text-shadow: none; }
 #saga .saga-card { background: linear-gradient(135deg, #F47BB4 0%, #EE5FA5 100%); border-color: rgb(255 255 255 / 60%); color: #fff; box-shadow: 0 16px 36px -18px rgb(238 95 165 / 60%); }

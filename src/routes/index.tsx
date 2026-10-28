@@ -79,7 +79,7 @@ function Index() {
         <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
           <h1 className="hero-title text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none">Sha&apos;s Worlds</h1>
           <p className="hero-tagline mt-6 max-w-xl text-2xl font-semibold leading-snug sm:text-3xl">
-            Beyond imagination into New Earth.
+            Beyond imagination<br />into New Earth.
           </p>
           <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
             Music. Film. Fashion. Technology.
@@ -229,7 +229,7 @@ function Index() {
             <Button asChild variant="outline" size="lg" className="portal-outline mt-7 h-12 rounded-full px-8 uppercase"><Link to="/contact">Contact Sha <ArrowRight /></Link></Button>
           </div>
         </div>
-        <footer id="connect" className="footer-panel footer-light mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 rounded-lg px-6 py-8 sm:px-8 md:grid-cols-[1.4fr_1fr]">
+        <footer id="connect" className="footer-panel footer-themed mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 rounded-lg px-6 py-8 sm:px-8 md:grid-cols-[1.4fr_1fr]">
           <div>
             <p className="font-display text-3xl font-light uppercase">Sha&apos;s Worlds</p>
             <p className="mt-3 text-sm opacity-90">Where creativity meets consciousness.</p>
