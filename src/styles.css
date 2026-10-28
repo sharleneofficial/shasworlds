@@ -75,7 +75,9 @@
   --neon-turquoise: #22E6DA;
   --neon-yellow: #FFC94D;
   --neon-violet: #B78CFF;
-  --page-gradient: linear-gradient(165deg, #FF4F9E 0%, #E758A5 38%, #9B5FC4 68%, #2E6FE8 100%);
+  --page-gradient: linear-gradient(115deg, #DF6597 0%, #CE659B 65%, #779FC6 100%);
+  --vault-background: linear-gradient(115deg, #E75C96 0%, #E576AD 42%, #CB7BAC 78%, #68B1D1 100%);
+  --vault-scrim: linear-gradient(90deg, rgb(231 92 150 / 65%) 0%, rgb(229 118 173 / 20%) 40%, transparent 60%), linear-gradient(180deg, transparent 55%, rgb(229 118 173 / 28%) 80%, rgb(203 123 172 / 42%) 100%);
   --hero-foreground: #FFFFFF;
   --hero-shadow: 0 2px 18px rgb(60 0 60 / 55%);
   --hero-scrim: linear-gradient(90deg, rgb(70 5 70 / 55%) 0%, rgb(70 5 70 / 20%) 55%, transparent 100%);
@@ -85,11 +87,11 @@
   --release-stamp-background: color-mix(in srgb, var(--neon-pink) 65%, transparent);
   --release-stamp-foreground: var(--hero-foreground);
   --release-stamp-shadow: var(--pink-glow);
-  --story-background: #DDF3EF;
-  --story-foreground: #264B4B;
-  --story-card: rgb(255 255 255 / 65%);
-  --story-border: #A4CFCA;
-  --story-shadow: 0 10px 30px -18px rgb(38 75 75 / 22%);
+  --story-background: linear-gradient(110deg, #BF5884 0%, #C46B97 62%, #819DBB 100%);
+  --story-foreground: var(--hero-foreground);
+  --story-card: rgb(255 255 255 / 12%);
+  --story-border: var(--glass-border);
+  --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 25%);
 }
 
 @layer base {
@@ -124,8 +126,8 @@
 .ep-room-frame { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
 .ep-room-art { transform: none; object-fit: contain; object-position: right top; }
 .brand-mark { font-family: var(--font-brand); }
-.ep-section { background: linear-gradient(115deg, #ff4194 0%, #ef5fa4 42%, #c25fae 72%, #3aa6d8 100%); }
-.ep-scrim { background: linear-gradient(90deg, rgb(255 65 148 / 70%) 0%, rgb(239 95 164 / 25%) 40%, transparent 60%), linear-gradient(180deg, transparent 55%, rgb(255 100 170 / 32%) 80%, rgb(160 110 205 / 55%) 100%); }
+.ep-section { background: var(--vault-background); }
+.ep-scrim { background: var(--vault-scrim); }
 .eyebrow { letter-spacing: 0.3em; opacity: 0.85; text-shadow: var(--hero-shadow); }
 .glow-heading { color: #fff; text-shadow: 0 0 16px rgb(255 110 199 / 55%), var(--hero-shadow); }
 
@@ -200,9 +202,9 @@
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(255 255 255 / 12%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
-/* A quiet sea-glass pause before the vivid pink garden. */
+/* Softer rose glass connects the image tiles to the vivid pink garden. */
 #saga { background: var(--story-background); color: var(--story-foreground); }
-#saga .glow-heading { color: var(--story-foreground); text-shadow: none; }
+#saga .glow-heading { color: var(--story-foreground); text-shadow: var(--hero-shadow); }
 #saga .saga-card { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: var(--story-shadow); }
 #saga .vault-icon { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: none; }
 #saga .saga-thumb { border-color: var(--story-border); }
