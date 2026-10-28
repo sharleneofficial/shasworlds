@@ -173,7 +173,7 @@
 .world-tile-overlay { background: linear-gradient(180deg, transparent 30%, rgb(60 0 70 / 78%) 100%); }
 
 /* Saga — one rail runs the full height of the section (through its padding, top edge to bottom edge) and fades at both ends. */
-.saga-rail { position: absolute; left: 6px; top: -96px; bottom: -96px; width: 2px; border-radius: 2px; background: linear-gradient(180deg, transparent 0%, var(--contact-accent) 12%, var(--neon-turquoise) 88%, transparent 100%); box-shadow: 0 0 10px rgb(217 84 140 / 22%), 0 0 26px rgb(34 230 218 / 16%); }
+.saga-rail { position: absolute; left: 6px; top: -80px; bottom: -96px; width: 2px; border-radius: 2px; background: linear-gradient(180deg, transparent 0%, var(--contact-accent) 12%, var(--neon-turquoise) 88%, transparent 100%); box-shadow: 0 0 10px rgb(217 84 140 / 22%), 0 0 26px rgb(34 230 218 / 16%); }
 .saga-card { position: relative; background: rgb(255 255 255 / 10%); border: 1.5px solid rgb(255 255 255 / 30%); backdrop-filter: blur(12px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; }
 /* Each chapter is marked by a ring sitting on the rail; the white halo keeps it clean where it crosses the line. */
 .saga-card::before { content: ""; position: absolute; left: -56px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; background: #fff; border: 2px solid var(--contact-accent); box-shadow: 0 0 0 4px #fff, 0 0 14px rgb(217 84 140 / 40%); }

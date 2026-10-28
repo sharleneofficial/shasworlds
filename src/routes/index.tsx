@@ -176,7 +176,7 @@ function Index() {
           <div className="saga-rail" aria-hidden="true" />
           <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
-          <ol className="relative mt-12 space-y-5 sm:pl-7">
+          <ol className="relative mt-12 space-y-5 sm:pl-14">
             {saga.map((m, i) => {
               const body = (
                 <>
