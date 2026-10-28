@@ -218,11 +218,11 @@
 #saga .saga-card::before { background: #fff; box-shadow: 0 0 10px var(--neon-pink); }
 #saga .saga-line::before { background: var(--story-border); }
 #saga .saga-card:hover { border-color: #fff; }
-/* The 4-Track Debut EP entry stays in place but glows as the live chapter. */
-#saga .saga-card-featured { background: var(--story-card-featured); border: 2.5px solid #fff; box-shadow: 0 0 0 5px rgb(255 255 255 / 22%), 0 0 30px color-mix(in srgb, var(--neon-pink) 80%, transparent), 0 0 70px color-mix(in srgb, var(--neon-pink) 45%, transparent); transform: translateY(-2px) scale(1.015); z-index: 1; }
-#saga .saga-card-featured .saga-tag { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #fff; color: var(--neon-pink); opacity: 1; }
-#saga .saga-card-featured:hover { border-color: #fff; }
 /* Keep small labels crisp over the saturated pink. */
 #saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: 0 1px 6px rgb(120 10 80 / 45%); }
 #saga .saga-card p { text-shadow: 0 1px 6px rgb(120 10 80 / 35%); }
 #saga .saga-card > div > p:last-of-type { opacity: 1; }
+/* The 4-Track Debut EP entry stays in place but glows as the live chapter. */
+#saga .saga-card.saga-card-featured { background: var(--story-card-featured); border: 2.5px solid #fff; box-shadow: 0 0 0 5px rgb(255 255 255 / 22%), 0 0 30px color-mix(in srgb, var(--neon-pink) 80%, transparent), 0 0 70px color-mix(in srgb, var(--neon-pink) 45%, transparent); transform: translateY(-2px) scale(1.015); z-index: 1; }
+#saga .saga-card.saga-card-featured .saga-tag { display: inline-block; padding: 5px 14px; border-radius: 999px; background: #fff; color: var(--neon-pink); opacity: 1; text-shadow: none; font-weight: 800; }
+#saga .saga-card.saga-card-featured:hover { border-color: #fff; }
