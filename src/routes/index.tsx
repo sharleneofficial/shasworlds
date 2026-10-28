@@ -110,7 +110,7 @@ function Index() {
         </div>
         <div className="ep-scrim absolute inset-0 -z-10" />
         <div className="mx-auto max-w-6xl px-5 pb-6 pt-16">
-          <div className="max-w-sm">
+          <div className="max-w-md">
             <p className="eyebrow text-xs uppercase">The Debut EP</p>
             <h2 className="glow-heading mt-2 font-display text-3xl font-medium uppercase md:text-4xl">4-Track Rollout Vault</h2>
             <p className="mt-5 text-sm leading-relaxed">
