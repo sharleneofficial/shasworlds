@@ -51,11 +51,11 @@ const worlds = [
 ];
 
 const saga = [
-  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: epRoom.url, imgRight: null, locked: false, mystery: true },
-  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false },
-  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false },
-  { n: "02", tag: "The Saga's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: epRoom.url, imgRight: epRoom.url, locked: false, mystery: false },
-  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: hero.url, imgRight: hero.url, locked: false, mystery: false },
+  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: epRoom.url, imgRight: null, locked: false, mystery: true, featured: false },
+  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false, featured: false },
+  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false, featured: false },
+  { n: "02", tag: "The Saga's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: epRoom.url, imgRight: epRoom.url, locked: false, mystery: false, featured: true },
+  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: hero.url, imgRight: hero.url, locked: false, mystery: false, featured: false },
 ];
 
 const XIcon = (p: { className?: string }) => (
@@ -121,8 +121,8 @@ function Index() {
         <div className="ep-scrim absolute inset-0 -z-10" />
         <div className="mx-auto max-w-6xl px-5 pb-6 pt-16">
           <div className="max-w-md">
-            <p className="eyebrow text-xs uppercase">The Debut EP</p>
-            <h2 className="glow-heading mt-2 font-display text-3xl font-medium uppercase md:text-4xl">4-Track Rollout Vault</h2>
+            <p className="eyebrow eyebrow-pill text-xs uppercase">The Debut EP</p>
+            <h2 className="glow-heading mt-4 font-display text-3xl font-medium uppercase md:text-4xl">4-Track Rollout Vault</h2>
             <p className="mt-5 text-sm leading-relaxed">
               The rollout begins with four transmissions — each one unlocking a frequency, a theme, and a deeper layer of SHA's multidimensional identity.
             </p>
@@ -197,14 +197,14 @@ function Index() {
           <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
           <ol className="saga-line relative mt-12 space-y-5">
             {saga.map((m, i) => (
-              <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""}`}>
+              <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""} ${m.featured ? "saga-card-featured" : ""}`}>
                 {m.img ? (
                   <img src={m.img} alt="" aria-hidden="true" loading="lazy" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
                 ) : (
                   <div className="vault-icon flex h-20 w-24 shrink-0 items-center justify-center rounded-xl"><Lock className="h-6 w-6" /></div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <p className="text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
+                  <p className="saga-tag text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
                   <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
                   <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
                 </div>
