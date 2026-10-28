@@ -173,10 +173,10 @@
 .world-tile-overlay { background: linear-gradient(180deg, transparent 30%, rgb(60 0 70 / 78%) 100%); }
 
 /* Saga — one rail runs the full height of the section (through its padding, top edge to bottom edge) and fades at both ends. */
-.saga-rail { position: absolute; left: 14px; top: -96px; bottom: -96px; width: 2px; border-radius: 2px; background: linear-gradient(180deg, transparent 0%, var(--contact-accent) 12%, var(--neon-turquoise) 88%, transparent 100%); box-shadow: 0 0 10px rgb(217 84 140 / 22%), 0 0 26px rgb(34 230 218 / 16%); }
+.saga-rail { position: absolute; left: 6px; top: -96px; bottom: -96px; width: 2px; border-radius: 2px; background: linear-gradient(180deg, transparent 0%, var(--contact-accent) 12%, var(--neon-turquoise) 88%, transparent 100%); box-shadow: 0 0 10px rgb(217 84 140 / 22%), 0 0 26px rgb(34 230 218 / 16%); }
 .saga-card { position: relative; background: rgb(255 255 255 / 10%); border: 1.5px solid rgb(255 255 255 / 30%); backdrop-filter: blur(12px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; }
 /* Each chapter is marked by a ring sitting on the rail; the white halo keeps it clean where it crosses the line. */
-.saga-card::before { content: ""; position: absolute; left: -20px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; background: #fff; border: 2px solid var(--contact-accent); box-shadow: 0 0 0 4px #fff, 0 0 14px rgb(217 84 140 / 40%); }
+.saga-card::before { content: ""; position: absolute; left: -56px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; background: #fff; border: 2px solid var(--contact-accent); box-shadow: 0 0 0 4px #fff, 0 0 14px rgb(217 84 140 / 40%); }
 .saga-thumb { border: 1px solid rgb(255 255 255 / 40%); }
 .saga-thumb-blur { filter: blur(5px) saturate(1.5); }
 .saga-locked { opacity: 0.85; }
@@ -236,7 +236,7 @@
 #saga .saga-thumb { border-color: rgb(255 255 255 / 60%); }
 /* Unpublished chapters read as hollow rings; the live chapter is a filled, gently breathing rose node. */
 #saga .saga-card.saga-locked::before { border-color: rgb(217 84 140 / 40%); box-shadow: 0 0 0 4px #fff; }
-#saga .saga-card.saga-card-featured::before { width: 18px; height: 18px; margin-top: -9px; left: -22px; background: var(--contact-accent); border-color: #fff; animation: saga-pulse 2.8s ease-in-out infinite; }
+#saga .saga-card.saga-card-featured::before { width: 18px; height: 18px; margin-top: -9px; left: -58px; background: var(--contact-accent); border-color: #fff; animation: saga-pulse 2.8s ease-in-out infinite; }
 @keyframes saga-pulse { 0%, 100% { box-shadow: 0 0 0 4px #fff, 0 0 14px rgb(217 84 140 / 45%); } 50% { box-shadow: 0 0 0 4px #fff, 0 0 28px rgb(217 84 140 / 80%); } }
 #saga .saga-card:hover { border-color: var(--contact-accent); }
 #saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: none; }
