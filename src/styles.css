@@ -88,7 +88,12 @@
   --release-stamp-foreground: var(--hero-foreground);
   --release-stamp-shadow: var(--pink-glow);
   /* Luminous lilac-purple, matching the footer's former glass tone. */
-  --story-background: linear-gradient(180deg, var(--creation-heading-background) 0%, oklch(0.97 0.016 320) 18%, oklch(0.89 0.06 320) 45%, oklch(0.78 0.115 320) 78%, oklch(0.72 0.13 320) 100%);
+  --story-background: linear-gradient(180deg, var(--creation-heading-background) 0%, transparent 32%), linear-gradient(118deg, oklch(0.94 0.045 185) 0%, oklch(0.87 0.09 185) 27%, oklch(0.85 0.105 335) 57%, oklch(0.77 0.13 310) 100%);
+  --story-card-pink: linear-gradient(120deg, oklch(0.74 0.15 345), oklch(0.67 0.18 350));
+  --story-card-rose: linear-gradient(120deg, oklch(0.77 0.135 350), oklch(0.69 0.16 340));
+  --story-card-orchid: linear-gradient(120deg, oklch(0.74 0.14 330), oklch(0.67 0.17 340));
+  --story-featured-background: linear-gradient(115deg, oklch(0.72 0.17 345) 0%, oklch(0.68 0.17 340) 78%, oklch(0.68 0.12 185) 100%);
+  --story-featured-shadow: 0 0 0 4px color-mix(in oklab, var(--hero-foreground) 40%, transparent), 0 16px 42px -18px color-mix(in oklab, var(--neon-turquoise) 55%, transparent);
   --story-foreground: var(--creation-heading-foreground);
   /* Pink glass cards deep enough to keep white text readable over them. */
   --story-card: rgb(231 92 150 / 72%);
@@ -103,11 +108,11 @@
   --contact-link-hover: linear-gradient(135deg, #E06A9C 0%, #C2437D 100%);
   --creation-heading-background: #FFFFFF;
   --creation-heading-foreground: #34313A;
-  --footer-background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8);
-  --footer-foreground: var(--hero-foreground);
-  --footer-accent: var(--hero-foreground);
-  --footer-hover: color-mix(in oklab, var(--contact-accent-deep) 65%, transparent);
-  --footer-border: color-mix(in oklab, var(--hero-foreground) 45%, transparent);
+  --footer-background: color-mix(in oklab, var(--hero-foreground) 70%, transparent);
+  --footer-foreground: var(--creation-heading-foreground);
+  --footer-accent: var(--contact-accent-deep);
+  --footer-hover: color-mix(in oklab, var(--contact-accent-soft) 32%, transparent);
+  --footer-border: color-mix(in oklab, var(--hero-foreground) 80%, transparent);
   --footer-shadow: var(--shadow-soft);
 }
 
@@ -231,19 +236,15 @@
 .portal-outline { background: rgb(255 255 255 / 12%); color: #fff; border: 2px solid #ffd1ea; box-shadow: 0 0 16px rgb(255 110 199 / 60%); }
 .portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
 .footer-panel { background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 24px rgb(255 110 199 / 28%); }
-/* Blurred-art wash: turquoise, lilac, gold and soft-pink blobs over the pink base, echoing the blurred cover art. */
+/* Clear luminous glass lets the garden supply the footer's pink and turquoise. */
 .footer-art {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(85% 110% at 88% 8%, rgb(34 230 218 / 40%), transparent 55%),
-    radial-gradient(70% 95% at 10% 100%, rgb(183 140 255 / 42%), transparent 60%),
-    radial-gradient(55% 70% at 62% 108%, rgb(255 201 77 / 32%), transparent 55%),
-    radial-gradient(75% 85% at 0% 12%, rgb(255 110 199 / 46%), transparent 62%);
+  background: linear-gradient(120deg, color-mix(in oklab, var(--neon-pink-soft) 10%, transparent), transparent 40%, color-mix(in oklab, var(--gold) 10%, transparent) 65%, color-mix(in oklab, var(--neon-turquoise) 12%, transparent));
 }
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
-.footer-themed { background: var(--footer-background); color: var(--footer-foreground); border-color: var(--footer-border); box-shadow: var(--footer-shadow); backdrop-filter: none; }
+.footer-themed { background: var(--footer-background); color: var(--footer-foreground); border-color: var(--footer-border); box-shadow: var(--footer-shadow); backdrop-filter: blur(6px) saturate(135%); }
 .about-section .footer-themed p { text-shadow: none; }
 .footer-link { background: transparent; color: var(--footer-accent); border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s; }
 .footer-link:hover, .footer-link:focus-visible { background: var(--footer-hover); color: var(--footer-accent); border-color: var(--footer-border); box-shadow: none; }
@@ -255,7 +256,9 @@
 /* White behind the heading deepens gradually into luminous lilac down the timeline. */
 #saga { background: var(--story-background); color: var(--story-foreground); }
 #saga .glow-heading { color: var(--story-foreground); text-shadow: none; }
-#saga .saga-card { background: linear-gradient(135deg, #F47BB4 0%, #EE5FA5 100%); border-color: rgb(255 255 255 / 60%); color: #fff; box-shadow: 0 16px 36px -18px rgb(238 95 165 / 60%); }
+#saga .saga-card { background: var(--story-card-pink); border-color: var(--glass-border); color: var(--hero-foreground); box-shadow: var(--story-shadow); }
+#saga .saga-card:nth-child(2n) { background: var(--story-card-rose); }
+#saga .saga-card:nth-child(3n) { background: var(--story-card-orchid); }
 #saga .vault-icon { background: rgb(255 255 255 / 16%); border-color: rgb(255 255 255 / 55%); color: #fff; box-shadow: none; }
 #saga .saga-thumb { border-color: rgb(255 255 255 / 60%); }
 /* Unpublished chapters read as hollow rings; the live chapter is a filled, gently breathing rose node. */
@@ -267,9 +270,9 @@
 #saga .saga-card p { text-shadow: none; }
 #saga .saga-card > div > p:last-of-type { opacity: 1; }
 /* The 4-Track Debut EP entry stays in place but glows as the live chapter. */
-#saga .saga-card.saga-card-featured { background: var(--story-card-featured); border: 2.5px solid #fff; box-shadow: 0 0 0 5px rgb(255 255 255 / 22%), 0 0 30px color-mix(in srgb, var(--neon-pink) 80%, transparent), 0 0 70px color-mix(in srgb, var(--neon-pink) 45%, transparent); transform: translateY(-2px) scale(1.015); transform-origin: left center; z-index: 1; }
+#saga .saga-card.saga-card-featured { background: var(--story-featured-background); border: 2.5px solid var(--neon-turquoise); box-shadow: var(--story-featured-shadow); transform: translateY(-2px) scale(1.015); transform-origin: left center; z-index: 1; }
 #saga .saga-card.saga-card-featured .saga-tag { display: inline-block; padding: 5px 14px; border-radius: 999px; background: #fff; color: var(--neon-pink); opacity: 1; text-shadow: none; font-weight: 800; }
-#saga .saga-card.saga-card-featured:hover { border-color: #fff; }
+#saga .saga-card.saga-card-featured:hover { border-color: var(--neon-turquoise); }
 #saga .saga-card-featured .saga-thumb { filter: blur(5px) saturate(1.4); }
 /* Listen / Watch / Collect pills on the STOP publication card. */
 #saga .saga-link { padding: 7px 16px; border-radius: 999px; background: rgb(255 255 255 / 14%); border: 1.5px solid rgb(255 255 255 / 55%); color: #fff; text-shadow: 0 1px 6px rgb(120 10 80 / 40%); transition: background .2s, border-color .2s, color .2s, transform .2s; }
