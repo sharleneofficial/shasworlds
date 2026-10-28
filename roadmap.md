@@ -7,5 +7,5 @@
 - [x] Verify footer links and desktop/mobile layouts.
 - [ ] Get the site live at shasworlds.com: add DNS records manually at the user's provider.
 - [ ] Sync this project and its contents to the user's GitHub account (sharleneofficial).
-- [ ] Match navigation SHA lettering to the banner and verify both pages.
-- [ ] Revise the banner cities using the homepage city reference and inspect the result.
+- [x] Match navigation SHA lettering to the banner and verify both pages.
+- [x] Revise the banner cities using the homepage city reference and inspect the result.
