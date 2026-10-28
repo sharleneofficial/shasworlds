@@ -130,9 +130,9 @@ function Index() {
             </p>
             <p className="eyebrow mt-8 text-xs uppercase">Track Highlights</p>
           </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {tracks.map((t, index) => (
-              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live"}`}>
+              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live lg:col-span-2"}`}>
                 <div className="vault-cover relative aspect-square w-full overflow-hidden rounded-lg">
                   <img src={covers[index]} alt={t.preSaveUrl ? `${t.label} cover art` : ""} aria-hidden={t.preSaveUrl ? undefined : true} loading="lazy" width={816} height={816} className={`h-full w-full object-cover ${t.preSaveUrl ? "" : "cover-blurred"}`} />
                 </div>
