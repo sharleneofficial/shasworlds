@@ -223,9 +223,7 @@
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
 /* Softer rose glass connects the image tiles to the vivid pink garden. */
-/* Heading strip on white; the lilac story background lives only on the card area below. */
-#saga { color: var(--story-foreground); }
-.saga-body { background: var(--story-background); color: var(--story-foreground); }
+#saga { background: var(--story-background); color: var(--story-foreground); }
 #saga .saga-card { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: var(--story-shadow); }
 #saga .vault-icon { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: none; }
 #saga .saga-thumb { border-color: var(--story-border); }

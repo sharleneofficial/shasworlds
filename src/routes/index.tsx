@@ -171,13 +171,10 @@ function Index() {
       </section>
 
       {/* Saga */}
-      <section id="saga" className="scroll-mt-24">
-        <div className="creation-heading-band px-5 pb-12 pt-20">
-          <h2 className="text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
-          <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
-        </div>
-        <div className="saga-body px-5 pb-24">
+      <section id="saga" className="scroll-mt-24 px-5 py-24">
         <div className="mx-auto max-w-4xl">
+          <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
+          <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
           <ol className="saga-line relative mt-12 space-y-5">
             {saga.map((m, i) => {
               const body = (
@@ -217,7 +214,6 @@ function Index() {
               );
             })}
           </ol>
-        </div>
         </div>
       </section>
 
