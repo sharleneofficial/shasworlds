@@ -90,9 +90,11 @@
   /* Luminous lilac-purple, matching the footer's former glass tone. */
   --story-background: linear-gradient(168deg, #C17CCB 0%, #CD8AD4 55%, #DA98DE 100%);
   --story-foreground: var(--hero-foreground);
-  --story-card: rgb(255 255 255 / 12%);
-  --story-border: var(--glass-border);
-  --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 25%);
+  /* Pink glass cards so the Story Arc belongs to the page's pink palette. */
+  --story-card: rgb(255 46 154 / 32%);
+  --story-card-featured: color-mix(in srgb, var(--neon-pink) 68%, rgb(255 255 255 / 18%));
+  --story-border: rgb(255 209 234 / 55%);
+  --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
 }
 
 @layer base {
@@ -130,6 +132,8 @@
 .ep-section { background: var(--vault-background); }
 .ep-scrim { background: var(--vault-scrim); }
 .eyebrow { letter-spacing: 0.3em; opacity: 0.85; text-shadow: var(--hero-shadow); }
+/* The Debut EP label is stamped in a glowing pink pill so it reads first. */
+.eyebrow-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 18px; border-radius: 999px; background: color-mix(in srgb, var(--neon-pink) 72%, transparent); border: 1.5px solid #ffd1ea; box-shadow: var(--pink-glow); opacity: 1; text-shadow: none; font-weight: 700; }
 .glow-heading { color: #fff; text-shadow: 0 0 16px rgb(255 110 199 / 55%), var(--hero-shadow); }
 
 /* Glass vault cards */
@@ -211,6 +215,10 @@
 #saga .saga-card { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: var(--story-shadow); }
 #saga .vault-icon { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: none; }
 #saga .saga-thumb { border-color: var(--story-border); }
-#saga .saga-card::before { background: var(--neon-pink-soft); box-shadow: none; }
+#saga .saga-card::before { background: #fff; box-shadow: 0 0 10px var(--neon-pink); }
 #saga .saga-line::before { background: var(--story-border); }
-#saga .saga-card:hover { border-color: var(--neon-pink-soft); }
+#saga .saga-card:hover { border-color: #fff; }
+/* The 4-Track Debut EP entry stays in place but glows as the live chapter. */
+#saga .saga-card-featured { background: var(--story-card-featured); border: 2px solid #ffd1ea; box-shadow: var(--pink-glow), var(--story-shadow); }
+#saga .saga-card-featured .saga-tag { color: #fff; opacity: 1; }
+#saga .saga-card-featured:hover { border-color: #fff; }
