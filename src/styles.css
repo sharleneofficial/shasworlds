@@ -233,6 +233,9 @@
 .footer-panel { background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 24px rgb(255 110 199 / 28%); }
 /* Blurred-art wash: turquoise, lilac, gold and soft-pink blobs over the pink base, echoing the blurred cover art. */
 .footer-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background:
     radial-gradient(85% 110% at 88% 8%, rgb(34 230 218 / 40%), transparent 55%),
     radial-gradient(70% 95% at 10% 100%, rgb(183 140 255 / 42%), transparent 60%),
