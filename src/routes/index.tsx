@@ -79,14 +79,14 @@ function Index() {
         <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
           <h1 className="hero-title text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none">Sha&apos;s Worlds</h1>
           <p className="hero-tagline mt-6 max-w-xl text-2xl font-semibold leading-snug sm:text-3xl">
-            Beyond imagination,<br />into Creation.
+            Beyond imagination<br />into Creation
           </p>
           <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
             Music. Film. Fashion. Technology.
           </p>
           <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">Step into the higher timelines.</p>
           <div className="mt-9">
-            <Button asChild variant="neon" size="lg" className="h-12 rounded-full px-8 uppercase"><a href="#ep">Enter the World <ArrowRight /></a></Button>
+            <Button asChild variant="neon" size="lg" className="h-12 rounded-full px-8 uppercase"><a href="#ep">Next Release <ArrowRight /></a></Button>
           </div>
         </div>
         <a href="#ep" aria-label="Discover the Debut EP" className="hero-scroll absolute bottom-6 left-1/2 -translate-x-1/2"><ArrowRight className="h-5 w-5 rotate-90" /></a>
