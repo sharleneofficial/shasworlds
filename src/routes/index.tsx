@@ -171,12 +171,12 @@ function Index() {
       </section>
 
       {/* Saga */}
-      <section id="saga" className="relative isolate scroll-mt-24 px-5 py-24">
+      <section id="saga" className="relative isolate scroll-mt-24 px-5 pb-24 pt-20">
         <div className="relative mx-auto max-w-4xl">
           <div className="saga-rail" aria-hidden="true" />
           <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
-          <ol className="relative mt-12 space-y-5 sm:pl-7">
+          <ol className="relative mt-12 space-y-5 sm:pl-14">
             {saga.map((m, i) => {
               const body = (
                 <>
@@ -227,7 +227,7 @@ function Index() {
             <h2 className="font-display text-3xl font-light uppercase md:text-4xl">About SHA</h2>
             <p className="mt-4 leading-relaxed opacity-95">SHA is a multidimensional creator, wayshower, and visionary architect of New Earth. She merges music, film, fashion, and immersive technology to channel frequencies that awaken consciousness and elevate culture.</p>
             <p className="mt-4 leading-relaxed opacity-95">Through art and innovation, SHA builds worlds that remember who we are — inspiring a global movement of creators and dreamers to embody love, freedom, and unity in the new era.</p>
-            <Button asChild variant="outline" size="lg" className="portal-outline mt-7 h-12 rounded-full px-8 uppercase"><a href="#ep">Enter the Portal <ArrowRight /></a></Button>
+            <Button asChild variant="outline" size="lg" className="portal-outline mt-7 h-12 rounded-full px-8 uppercase"><Link to="/contact">Contact Sha <ArrowRight /></Link></Button>
           </div>
         </div>
         <footer id="connect" className="footer-panel mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 rounded-3xl px-8 py-8 md:grid-cols-3 md:divide-x md:divide-white/40">
