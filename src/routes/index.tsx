@@ -142,10 +142,17 @@ function Index() {
                   </span>
                   <h3 className="font-sans text-xs uppercase opacity-80">{t.label}</h3>
                 </div>
-                                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
-                <p className={`vault-status mt-1 text-[11px] uppercase ${t.isLocked ? "" : "transmitting"}`}>
-                  {t.isLocked ? (index === 1 ? "Releasing Next" : "Coming Soon") : "Coming in January"}
-                </p>
+                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
+                {!t.isLocked ? (
+                  <div className="mt-2 rounded-lg bg-[rgb(255_255_255/18%)] py-2 text-center shadow-[0_0_18px_rgb(255_110_199/55%)]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.28em] opacity-90">Coming in</p>
+                    <p className="january-flare font-display text-4xl font-extrabold uppercase leading-tight">January</p>
+                  </div>
+                ) : (
+                  <p className={`vault-status mt-1 text-[11px] uppercase ${index === 1 ? "transmitting" : ""}`}>
+                    {index === 1 ? "Releasing Next" : "Coming Soon"}
+                  </p>
+                )}
                 <p className="mt-3 text-xs leading-relaxed opacity-90">{t.details}</p>
                 {!t.isLocked && (
                   t.preSaveUrl ? (
