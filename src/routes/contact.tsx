@@ -11,9 +11,12 @@ export const Route = createFileRoute("/contact")({
     { name: "description", content: "Connect with SHA across music, film, fashion and digital art. Telegram, Email, Instagram, X, YouTube, Spotify, STOP and PYPD links." },
     { property: "og:title", content: "Contact SHA — Sha's Worlds" },
     { property: "og:description", content: "Step beyond what you thought was possible. Connect with SHA and explore her worlds." },
+    { property: "og:url", content: "https://sha-worlds-online-presence.lovable.app/contact" },
     { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://sha-worlds-online-presence.lovable.app/og-shasworlds-contact.jpg" },
     { name: "twitter:card", content: "summary_large_image" },
-  ] }),
+    { name: "twitter:image", content: "https://sha-worlds-online-presence.lovable.app/og-shasworlds-contact.jpg" },
+  ], links: [{ rel: "canonical", href: "https://sha-worlds-online-presence.lovable.app/contact" }] }),
   component: ContactPage,
 });
 
