@@ -9,3 +9,4 @@
 - [ ] Sync this project and its contents to the user's GitHub account (sharleneofficial).
 - [x] Match navigation SHA lettering to the banner and verify both pages.
 - [x] Revise the banner cities using the homepage city reference and inspect the result.
+- [x] Simplify navigation lettering and revise banner wording with a distant mystical city.
