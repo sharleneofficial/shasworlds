@@ -74,7 +74,7 @@ function Index() {
     <div className="min-h-screen">
       <header className={`site-header fixed inset-x-0 top-0 z-50 ${scrolled ? "is-scrolled" : ""}`}>
         <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 md:px-10">
-          <a href="#portal" className="brand-mark font-display text-2xl font-extrabold leading-none">
+          <a href="#portal" className="brand-mark text-2xl font-extrabold leading-none">
             SHA
             <span className="brand-sub block text-[8px] font-semibold uppercase">Creator of Worlds</span>
           </a>
@@ -89,7 +89,7 @@ function Index() {
       <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center overflow-hidden">
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
         <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
-          <h1 className="hero-title font-display text-[clamp(2.5rem,7vw,6rem)] font-extrabold uppercase leading-none">Shasworlds</h1>
+          <h1 className="hero-title font-display text-[clamp(2.5rem,7vw,6rem)] font-semibold uppercase leading-none">Shasworlds</h1>
           <p className="hero-tagline mt-6 max-w-md text-2xl font-semibold leading-snug sm:text-3xl">
             Where creativity<br />meets consciousness.
           </p>
@@ -104,39 +104,40 @@ function Index() {
       </section>
 
       {/* EP */}
-      <section id="ep" className="ep-section relative isolate scroll-mt-24 overflow-hidden px-5 py-24">
-        <img src={epRoom.url} alt="" aria-hidden="true" loading="lazy" className="ep-room-art absolute inset-0 -z-20 h-full w-full object-cover" />
+      <section id="ep" className="ep-section relative isolate scroll-mt-24 overflow-hidden">
+        <div className="ep-room-frame absolute inset-y-0 right-0 -z-20 w-full overflow-hidden lg:w-[62%]">
+          <img src={epRoom.url} alt="" aria-hidden="true" loading="lazy" className="ep-room-art h-full w-full object-cover" />
+        </div>
         <div className="ep-scrim absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-xl">
-            <p className="eyebrow text-xs font-bold uppercase">The Debut EP</p>
-            <h2 className="glow-heading mt-2 font-display text-4xl font-extrabold uppercase md:text-5xl">4-Track Rollout Vault</h2>
-            <p className="mt-5 text-sm leading-relaxed sm:text-base">
+        <div className="mx-auto max-w-6xl px-5 pb-6 pt-16">
+          <div className="max-w-md">
+            <p className="eyebrow text-xs uppercase">The Debut EP</p>
+            <h2 className="glow-heading mt-2 font-display text-3xl font-medium uppercase md:text-4xl">4-Track Rollout Vault</h2>
+            <p className="mt-5 text-sm leading-relaxed">
               The rollout begins with four transmissions — each one unlocking a frequency, a theme, and a deeper layer of SHA's multidimensional identity.
             </p>
-            <p className="mt-4 text-sm leading-relaxed sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed">
               Tracks will be released monthly, leading up to the full EP and an expanded body of work that spans across music, film, fashion and immersive experiences.
             </p>
-            <p className="eyebrow mt-8 text-xs font-bold uppercase">Track Highlights</p>
+            <p className="eyebrow mt-8 text-xs uppercase">Track Highlights</p>
           </div>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tracks.map((t, index) => (
-              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-2xl p-6 ${t.isLocked ? "" : "vault-live"}`}>
+              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl px-5 py-7 ${t.isLocked ? "" : "vault-live"}`}>
                 <div className="vault-icon mx-auto flex h-16 w-16 items-center justify-center rounded-full">
                   {t.isLocked ? <Lock className="h-6 w-6" /> : <AudioWaveform className="h-7 w-7" />}
                 </div>
-                <h3 className="mt-5 text-xs font-bold uppercase opacity-80">{t.label}</h3>
-                <p className="mt-1 text-lg font-extrabold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
-                <p className={`vault-status mt-3 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-bold uppercase ${t.isLocked ? "" : "transmitting"}`}>
-                  {!t.isLocked && <span className="status-dot h-1.5 w-1.5 rounded-full" />}
+                <h3 className="mt-6 font-sans text-xs uppercase opacity-80">{t.label}</h3>
+                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
+                <p className={`vault-status mt-1 text-[11px] uppercase ${t.isLocked ? "" : "transmitting"}`}>
                   {t.isLocked ? (index === 1 ? "Releasing Next" : "Coming Soon") : "Coming in January"}
                 </p>
-                <p className="mt-4 text-xs leading-relaxed opacity-90">{t.details}</p>
+                <p className="mt-3 text-xs leading-relaxed opacity-90">{t.details}</p>
                 {!t.isLocked && (
                   t.preSaveUrl ? (
-                    <Button asChild variant="neon" className="mt-5 rounded-full uppercase"><a href={t.preSaveUrl} target="_blank" rel="noreferrer">Pre-Save</a></Button>
+                    <Button asChild variant="neon" className="mt-4 rounded-full uppercase"><a href={t.preSaveUrl} target="_blank" rel="noreferrer">Pre-Save</a></Button>
                   ) : (
-                    <Button disabled variant="outline" className="vault-presave mt-5 h-auto min-h-9 whitespace-normal rounded-full text-xs uppercase">Pre-Save Link Coming Soon</Button>
+                    <p className="mt-3 text-[11px] uppercase opacity-70">Pre-save link coming soon</p>
                   )
                 )}
               </article>
@@ -148,7 +149,7 @@ function Index() {
       {/* Worlds */}
       <section id="worlds" className="scroll-mt-24 pt-20">
         <div className="mx-auto max-w-7xl px-5">
-          <h2 className="glow-heading text-center font-display text-4xl font-extrabold uppercase md:text-5xl">4 Forms of Creation</h2>
+          <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">4 Forms of Creation</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">One vision. Infinite expressions.</p>
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4">
@@ -170,7 +171,7 @@ function Index() {
       {/* Saga */}
       <section id="saga" className="scroll-mt-24 px-5 py-24">
         <div className="mx-auto max-w-4xl">
-          <h2 className="glow-heading text-center font-display text-4xl font-extrabold uppercase md:text-5xl">The Story Arc</h2>
+          <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
           <ol className="saga-line relative mt-12 space-y-5">
             {saga.map((m, i) => (
@@ -201,7 +202,7 @@ function Index() {
       <footer id="connect" className="scroll-mt-24 px-5 pb-10 pt-20">
         <div className="mx-auto grid max-w-6xl gap-10 border-t border-white/25 pt-10 md:grid-cols-3">
           <div>
-            <p className="font-display text-2xl font-extrabold uppercase">Shasworlds</p>
+            <p className="font-display text-2xl font-medium uppercase">Shasworlds</p>
             <p className="mt-2 text-sm opacity-85">Where creativity meets consciousness.</p>
             <p className="mt-6 text-xs opacity-70">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
           </div>
