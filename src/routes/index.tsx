@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Lock, Music, Film, Shirt, Orbit, Sparkles, ArrowRight, Youtube, Instagram, Send, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
+import { Lock, Film, Shirt, Orbit, ArrowRight, Youtube, Instagram, Send, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
