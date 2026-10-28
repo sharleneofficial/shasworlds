@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -25,7 +25,6 @@ export function SiteHeader() {
       <Link to="/" hash="portal" className="brand-mark text-2xl font-extrabold leading-none" onClick={() => setOpen(false)}>SHA<span className="brand-sub block text-[8px] font-semibold uppercase">Creator of Worlds</span></Link>
       <div className="hidden items-center gap-7 text-xs font-semibold uppercase lg:flex">{links}</div>
       <div className="flex items-center gap-2">
-        <Button asChild variant="neon" className="rounded-full px-4 text-xs uppercase sm:px-5"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">Explore PYPD <ArrowUpRight /></a></Button>
         <Button variant="ghost" size="icon" className="lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
       </div>
     </nav>
