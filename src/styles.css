@@ -92,7 +92,7 @@
   --story-foreground: var(--hero-foreground);
   /* Pink glass cards deep enough to keep white text readable over them. */
   --story-card: rgb(231 92 150 / 72%);
-  --story-card-featured: #E01A80;
+  --story-card-featured: #EE5FA5;
   --story-border: rgb(255 209 234 / 55%);
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
 }
