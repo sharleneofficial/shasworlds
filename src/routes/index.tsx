@@ -12,6 +12,9 @@ const worldMusic = worldMusicAsset.url;
 const worldFashion = worldFashionAsset.url;
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
+import pypdVideo from "@/assets/pypd-space.mp4.asset.json";
+import stopVideo from "@/assets/stop-pilot.mp4.asset.json";
+import shaSaga from "@/assets/sha-saga.png.asset.json";
 import profile from "@/assets/sha-about-frameless.jpg";
 import aboutBg from "@/assets/about-bright-pink.jpg";
 import cover01 from "@/assets/ep-cover.jpg";
@@ -52,12 +55,12 @@ const worlds = [
   { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Build the new Earth. Immersive experiences that connect, transform, and elevate." },
 ];
 
-const saga = [
-  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: epRoom.url, imgRight: null, locked: false, mystery: true, featured: false },
+const saga: { n: string; tag: string; title: string; text: string; img: string | null; video?: string; imgRight: string | null; locked: boolean; mystery: boolean; featured: boolean }[] = [
+  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: null, video: pypdVideo.url, imgRight: null, locked: false, mystery: true, featured: false },
   { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false, featured: false },
   { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false, featured: false },
-  { n: "02", tag: "The Saga's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: epRoom.url, imgRight: epRoom.url, locked: false, mystery: false, featured: true },
-  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: hero.url, imgRight: hero.url, locked: false, mystery: false, featured: false },
+  { n: "02", tag: "Sha's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: shaSaga.url, imgRight: vaultRoom.url, locked: false, mystery: false, featured: true },
+  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: null, video: stopVideo.url, imgRight: null, locked: false, mystery: false, featured: false },
 ];
 
 const XIcon = (p: { className?: string }) => (
@@ -200,7 +203,9 @@ function Index() {
           <ol className="saga-line relative mt-12 space-y-5">
             {saga.map((m, i) => (
               <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""} ${m.featured ? "saga-card-featured" : ""}`}>
-                {m.img ? (
+                {m.video ? (
+                  <video src={m.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
+                ) : m.img ? (
                   <img src={m.img} alt="" aria-hidden="true" loading="lazy" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
                 ) : (
                   <div className="vault-icon flex h-20 w-24 shrink-0 items-center justify-center rounded-xl"><Lock className="h-6 w-6" /></div>
