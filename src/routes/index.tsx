@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
 import epRoom from "@/assets/ep-room.png.asset.json";
+import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
 import worldMusic from "@/assets/world-music.jpg";
 import worldFilm from "@/assets/world-film.jpg";
 import worldFashion from "@/assets/world-fashion.jpg";
@@ -115,7 +116,7 @@ function Index() {
       {/* EP */}
       <section id="ep" className="ep-section relative isolate scroll-mt-24 overflow-hidden">
         <div className="ep-room-frame absolute inset-y-0 right-0 -z-20 w-full overflow-hidden lg:w-[62%]">
-          <img src={epRoom.url} alt="" aria-hidden="true" loading="lazy" className="ep-room-art h-full w-full object-cover" />
+          <img src={vaultRoom.url} alt="" aria-hidden="true" loading="lazy" className="ep-room-art h-full w-full object-cover" />
         </div>
         <div className="ep-scrim absolute inset-0 -z-10" />
         <div className="mx-auto max-w-6xl px-5 pb-6 pt-16">
@@ -130,9 +131,12 @@ function Index() {
             </p>
             <p className="eyebrow mt-8 text-xs uppercase">Track Highlights</p>
           </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tracks.map((t, index) => (
-              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live lg:col-span-2"}`}>
+              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live"}`}>
+                <div className="flex h-14 items-center justify-end pb-3">
+                  {!t.isLocked && <p className="release-stamp"><span>Coming in</span><strong>January</strong></p>}
+                </div>
                 <div className="vault-cover relative aspect-square w-full overflow-hidden rounded-lg">
                   <img src={covers[index]} alt={t.preSaveUrl ? `${t.label} cover art` : ""} aria-hidden={t.preSaveUrl ? undefined : true} loading="lazy" width={816} height={816} className={`h-full w-full object-cover ${t.preSaveUrl ? "" : "cover-blurred"}`} />
                 </div>
@@ -144,10 +148,7 @@ function Index() {
                 </div>
                 <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
                 {!t.isLocked ? (
-                  <div className="mt-2 rounded-lg bg-[rgb(255_255_255/18%)] py-2 text-center shadow-[0_0_18px_rgb(255_110_199/55%)]">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.28em] opacity-90">Coming in</p>
-                    <p className="january-flare font-display text-4xl font-extrabold uppercase leading-tight">January</p>
-                  </div>
+                  <p className="vault-status mt-1 text-[11px] uppercase">Coming in January</p>
                 ) : (
                   <p className={`vault-status mt-1 text-[11px] uppercase ${index === 1 ? "transmitting" : ""}`}>
                     {index === 1 ? "Releasing Next" : "Coming Soon"}
