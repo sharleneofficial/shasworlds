@@ -85,6 +85,11 @@
   --release-stamp-background: color-mix(in srgb, var(--neon-pink) 65%, transparent);
   --release-stamp-foreground: var(--hero-foreground);
   --release-stamp-shadow: var(--pink-glow);
+  --story-background: #DDF3EF;
+  --story-foreground: #264B4B;
+  --story-card: rgb(255 255 255 / 65%);
+  --story-border: #A4CFCA;
+  --story-shadow: 0 10px 30px -18px rgb(38 75 75 / 22%);
 }
 
 @layer base {
@@ -194,3 +199,13 @@
 .footer-panel { background: rgb(255 255 255 / 20%); border: 1.5px solid rgb(255 255 255 / 55%); backdrop-filter: blur(16px) saturate(140%); box-shadow: 0 0 30px rgb(255 110 199 / 25%); }
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(255 255 255 / 12%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
+
+/* A quiet sea-glass pause before the vivid pink garden. */
+#saga { background: var(--story-background); color: var(--story-foreground); }
+#saga .glow-heading { color: var(--story-foreground); text-shadow: none; }
+#saga .saga-card { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: var(--story-shadow); }
+#saga .vault-icon { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: none; }
+#saga .saga-thumb { border-color: var(--story-border); }
+#saga .saga-card::before { background: var(--neon-pink-soft); box-shadow: none; }
+#saga .saga-line::before { background: var(--story-border); }
+#saga .saga-card:hover { border-color: var(--neon-pink-soft); }
