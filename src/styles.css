@@ -222,3 +222,7 @@
 #saga .saga-card-featured { background: var(--story-card-featured); border: 2px solid #ffd1ea; box-shadow: var(--pink-glow), var(--story-shadow); }
 #saga .saga-card-featured .saga-tag { color: #fff; opacity: 1; }
 #saga .saga-card-featured:hover { border-color: #fff; }
+/* Keep small labels crisp over the saturated pink. */
+#saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: 0 1px 6px rgb(120 10 80 / 45%); }
+#saga .saga-card p { text-shadow: 0 1px 6px rgb(120 10 80 / 35%); }
+#saga .saga-card > div > p:last-of-type { opacity: 1; }
