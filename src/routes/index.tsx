@@ -14,7 +14,6 @@ import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
 import pypdVideo from "@/assets/pypd-space.mp4.asset.json";
 import stopVideo from "@/assets/stop-pilot.mp4.asset.json";
-import shaSaga from "@/assets/sha-saga.png.asset.json";
 import profile from "@/assets/sha-about-frameless.jpg";
 import aboutBg from "@/assets/about-bright-pink.jpg";
 import cover01Asset from "@/assets/vault-cover-01.png.asset.json";
