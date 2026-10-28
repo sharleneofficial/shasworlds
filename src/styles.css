@@ -222,17 +222,17 @@
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
-/* Softer rose glass connects the image tiles to the vivid pink garden. */
-#saga { background: var(--story-background); color: var(--story-foreground); }
-#saga .saga-card { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: var(--story-shadow); }
-#saga .vault-icon { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: none; }
-#saga .saga-thumb { border-color: var(--story-border); }
-#saga .saga-card::before { background: #fff; box-shadow: 0 0 10px var(--neon-pink); }
-#saga .saga-line::before { background: var(--story-border); }
-#saga .saga-card:hover { border-color: #fff; }
-/* Keep small labels crisp over the saturated pink. */
-#saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: 0 1px 6px rgb(120 10 80 / 45%); }
-#saga .saga-card p { text-shadow: 0 1px 6px rgb(120 10 80 / 35%); }
+/* The Story Arc sits on a calm white zone: solid candy-pink cards float on white, giving the page one continuous white breath between the artwork tiles and the vivid garden. */
+#saga { background: #FFFFFF; color: var(--creation-heading-foreground); }
+#saga .glow-heading { color: var(--creation-heading-foreground); text-shadow: none; }
+#saga .saga-card { background: linear-gradient(135deg, #F47BB4 0%, #EE5FA5 100%); border-color: rgb(255 255 255 / 60%); color: #fff; box-shadow: 0 16px 36px -18px rgb(238 95 165 / 60%); }
+#saga .vault-icon { background: rgb(255 255 255 / 16%); border-color: rgb(255 255 255 / 55%); color: #fff; box-shadow: none; }
+#saga .saga-thumb { border-color: rgb(255 255 255 / 60%); }
+#saga .saga-card::before { background: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); }
+#saga .saga-line::before { background: linear-gradient(180deg, var(--neon-pink), var(--neon-turquoise)); opacity: .9; }
+#saga .saga-card:hover { border-color: var(--neon-pink); }
+#saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: none; }
+#saga .saga-card p { text-shadow: none; }
 #saga .saga-card > div > p:last-of-type { opacity: 1; }
 /* The 4-Track Debut EP entry stays in place but glows as the live chapter. */
 #saga .saga-card.saga-card-featured { background: var(--story-card-featured); border: 2.5px solid #fff; box-shadow: 0 0 0 5px rgb(255 255 255 / 22%), 0 0 30px color-mix(in srgb, var(--neon-pink) 80%, transparent), 0 0 70px color-mix(in srgb, var(--neon-pink) 45%, transparent); transform: translateY(-2px) scale(1.015); z-index: 1; }
