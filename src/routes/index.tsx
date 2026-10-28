@@ -5,10 +5,9 @@ import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
 import epRoom from "@/assets/ep-room.png.asset.json";
 import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
-import worldMusicAsset from "@/assets/world-music.png.asset.json";
+import worldMusic from "@/assets/world-music.jpg";
 import worldFilm from "@/assets/world-film.jpg";
-import worldFashionAsset from "@/assets/world-fashion-runway.png.asset.json";
-const worldMusic = worldMusicAsset.url;
+import worldFashionAsset from "@/assets/world-fashion-runway-2.png.asset.json";
 const worldFashion = worldFashionAsset.url;
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
@@ -49,8 +48,8 @@ const nav = [
 
 const worlds = [
   { icon: AudioWaveform, title: "Music", img: worldMusic, text: "Sound as frequency. Elevated music that awakens, heals, and expands." },
-  { icon: Film, title: "Film & Narrative", img: worldFilm, text: "Stories that shift realities. Cinematic worlds that mirror the journey within." },
   { icon: Shirt, title: "Fashion", img: worldFashion, text: "Wear the future. High-fashion as expression, identity, and art." },
+  { icon: Film, title: "Film & Narrative", img: worldFilm, text: "Stories that shift realities. Cinematic worlds that mirror the journey within." },
   { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Build the new Earth. Immersive experiences that connect, transform, and elevate." },
 ];
 
