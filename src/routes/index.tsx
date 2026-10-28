@@ -130,9 +130,9 @@ function Index() {
             </p>
             <p className="eyebrow mt-8 text-xs uppercase">Track Highlights</p>
           </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {tracks.map((t, index) => (
-              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live"}`}>
+              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live lg:col-span-2"}`}>
                 <div className="vault-cover relative aspect-square w-full overflow-hidden rounded-lg">
                   <img src={covers[index]} alt={t.preSaveUrl ? `${t.label} cover art` : ""} aria-hidden={t.preSaveUrl ? undefined : true} loading="lazy" width={816} height={816} className={`h-full w-full object-cover ${t.preSaveUrl ? "" : "cover-blurred"}`} />
                 </div>
@@ -142,10 +142,17 @@ function Index() {
                   </span>
                   <h3 className="font-sans text-xs uppercase opacity-80">{t.label}</h3>
                 </div>
-                                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
-                <p className={`vault-status mt-1 text-[11px] uppercase ${t.isLocked ? "" : "transmitting"}`}>
-                  {t.isLocked ? (index === 1 ? "Releasing Next" : "Coming Soon") : "Coming in January"}
-                </p>
+                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
+                {!t.isLocked ? (
+                  <div className="mt-2 rounded-lg bg-[rgb(255_255_255/18%)] py-2 text-center shadow-[0_0_18px_rgb(255_110_199/55%)]">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.28em] opacity-90">Coming in</p>
+                    <p className="january-flare font-display text-4xl font-extrabold uppercase leading-tight">January</p>
+                  </div>
+                ) : (
+                  <p className={`vault-status mt-1 text-[11px] uppercase ${index === 1 ? "transmitting" : ""}`}>
+                    {index === 1 ? "Releasing Next" : "Coming Soon"}
+                  </p>
+                )}
                 <p className="mt-3 text-xs leading-relaxed opacity-90">{t.details}</p>
                 {!t.isLocked && (
                   t.preSaveUrl ? (
