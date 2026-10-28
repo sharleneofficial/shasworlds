@@ -2,6 +2,6 @@
 - [x] Make PYPD entrances visible in its story card and footer.
 - [x] Redesign Contact with the live page's existing content and links.
 - [x] Verify navigation, contact links, and page layouts.
-- [ ] Update hero text and remove inactive footer signup.
-- [ ] Balance purple Story Arc with a white footer and refined link states.
-- [ ] Verify footer links and desktop/mobile layouts.
+- [x] Update hero text and remove inactive footer signup.
+- [x] Balance purple Story Arc with a white footer and refined link states.
+- [x] Verify footer links and desktop/mobile layouts.
