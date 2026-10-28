@@ -172,10 +172,11 @@
 .world-tile:hover img { transform: scale(1.04); }
 .world-tile-overlay { background: linear-gradient(180deg, transparent 30%, rgb(60 0 70 / 78%) 100%); }
 
-/* Saga */
-.saga-line::before { content: ""; position: absolute; left: -14px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, var(--neon-pink-soft), var(--neon-turquoise)); border-radius: 2px; opacity: .8; }
+/* Saga — one rail runs the full height of the section (through its padding, top edge to bottom edge) and fades at both ends. */
+.saga-rail { position: absolute; left: 14px; top: -96px; bottom: -96px; width: 2px; border-radius: 2px; background: linear-gradient(180deg, transparent 0%, var(--contact-accent) 12%, var(--neon-turquoise) 88%, transparent 100%); box-shadow: 0 0 10px rgb(217 84 140 / 22%), 0 0 26px rgb(34 230 218 / 16%); }
 .saga-card { position: relative; background: rgb(255 255 255 / 10%); border: 1.5px solid rgb(255 255 255 / 30%); backdrop-filter: blur(12px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; }
-.saga-card::before { content: ""; position: absolute; left: -20px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px var(--neon-pink-soft); }
+/* Each chapter is marked by a ring sitting on the rail; the white halo keeps it clean where it crosses the line. */
+.saga-card::before { content: ""; position: absolute; left: -21px; top: 50%; width: 14px; height: 14px; margin-top: -7px; border-radius: 50%; background: #fff; border: 2px solid var(--contact-accent); box-shadow: 0 0 0 4px #fff, 0 0 14px rgb(217 84 140 / 40%); }
 .saga-thumb { border: 1px solid rgb(255 255 255 / 40%); }
 .saga-thumb-blur { filter: blur(5px) saturate(1.5); }
 .saga-locked { opacity: 0.85; }
@@ -196,7 +197,7 @@
 
 @media (max-width: 639px) {
   .hero-content { padding-top: 8rem; }
-  .saga-line::before { display: none; }
+  .saga-rail { display: none; }
   .saga-card::before { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -233,9 +234,11 @@
 #saga .saga-card { background: linear-gradient(135deg, #F47BB4 0%, #EE5FA5 100%); border-color: rgb(255 255 255 / 60%); color: #fff; box-shadow: 0 16px 36px -18px rgb(238 95 165 / 60%); }
 #saga .vault-icon { background: rgb(255 255 255 / 16%); border-color: rgb(255 255 255 / 55%); color: #fff; box-shadow: none; }
 #saga .saga-thumb { border-color: rgb(255 255 255 / 60%); }
-#saga .saga-card::before { background: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); }
-#saga .saga-line::before { background: linear-gradient(180deg, var(--neon-pink), var(--neon-turquoise)); opacity: .9; }
-#saga .saga-card:hover { border-color: var(--neon-pink); }
+/* Unpublished chapters read as hollow rings; the live chapter is a filled, gently breathing rose node. */
+#saga .saga-card.saga-locked::before { border-color: rgb(217 84 140 / 40%); box-shadow: 0 0 0 4px #fff; }
+#saga .saga-card.saga-card-featured::before { width: 18px; height: 18px; margin-top: -9px; left: -23px; background: var(--contact-accent); border-color: #fff; animation: saga-pulse 2.8s ease-in-out infinite; }
+@keyframes saga-pulse { 0%, 100% { box-shadow: 0 0 0 4px #fff, 0 0 14px rgb(217 84 140 / 45%); } 50% { box-shadow: 0 0 0 4px #fff, 0 0 28px rgb(217 84 140 / 80%); } }
+#saga .saga-card:hover { border-color: var(--contact-accent); }
 #saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: none; }
 #saga .saga-card p { text-shadow: none; }
 #saga .saga-card > div > p:last-of-type { opacity: 1; }
