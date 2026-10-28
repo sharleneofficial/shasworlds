@@ -5,3 +5,5 @@
 - [x] Update hero text and remove inactive footer signup.
 - [x] Balance purple Story Arc with a white footer and refined link states.
 - [x] Verify footer links and desktop/mobile layouts.
+- [ ] Get the site live at shasworlds.com: add DNS records manually at the user's provider.
+- [ ] Sync this project and its contents to the user's GitHub account (sharleneofficial).
