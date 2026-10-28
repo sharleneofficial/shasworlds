@@ -7,7 +7,7 @@ import epRoom from "@/assets/ep-room.png.asset.json";
 import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
 import worldMusicAsset from "@/assets/world-music.png.asset.json";
 import worldFilm from "@/assets/world-film.jpg";
-import worldFashionAsset from "@/assets/world-fashion.png.asset.json";
+import worldFashionAsset from "@/assets/world-fashion-runway.png.asset.json";
 const worldMusic = worldMusicAsset.url;
 const worldFashion = worldFashionAsset.url;
 import worldTech from "@/assets/world-tech.jpg";
@@ -17,13 +17,13 @@ import stopVideo from "@/assets/stop-pilot.mp4.asset.json";
 import shaSaga from "@/assets/sha-saga.png.asset.json";
 import profile from "@/assets/sha-about-frameless.jpg";
 import aboutBg from "@/assets/about-bright-pink.jpg";
-import cover01 from "@/assets/ep-cover.jpg";
-import cover02 from "@/assets/cover-02.jpg";
-import cover03 from "@/assets/cover-03.jpg";
-import cover04 from "@/assets/cover-04.jpg";
+import cover01Asset from "@/assets/vault-cover-01.png.asset.json";
+import cover02Asset from "@/assets/vault-cover-02.png.asset.json";
+import cover03Asset from "@/assets/vault-cover-03.png.asset.json";
+import cover04Asset from "@/assets/vault-cover-04.png.asset.json";
 
 // Placeholder square cover art per track; stays blurred until the track is published (isLocked false + preSaveUrl live).
-const covers = [cover01, cover02, cover03, cover04];
+const covers = [cover01Asset.url, cover02Asset.url, cover03Asset.url, cover04Asset.url];
 
 export const Route = createFileRoute("/")({
   head: () => ({
