@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Gem, Globe, Instagram, Mail, Music2, Send, Youtube } from "lucide-react";
+import { Gem, Globe, Instagram, Mail, Music2, Send, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactGroups, contactIntro, type ContactIcon } from "@/lib/contact-links";
 import garden from "@/assets/about-bright-pink.jpg";
@@ -48,7 +48,7 @@ function ContactPage() {
               const mailto = link.href.startsWith("mailto:");
               return <Button key={link.label} asChild variant="outline" className="contact-link h-auto min-h-12 w-full whitespace-normal rounded-lg px-5 py-3">
                 <a href={link.href} target={mailto ? undefined : "_blank"} rel="noreferrer" className="flex items-center justify-center gap-3">
-                  <Icon className="size-5 shrink-0" />{link.label}{mailto ? <Mail /> : <ArrowUpRight />}
+                  <Icon className="size-5 shrink-0" />{link.label}
                 </a>
               </Button>;
             })}
@@ -59,8 +59,8 @@ function ContactPage() {
     <footer className="footer-panel mx-auto mt-20 flex max-w-6xl flex-col justify-between gap-6 rounded-lg p-6 sm:flex-row sm:items-center">
       <div><p className="font-display text-2xl">Sha's Worlds</p><p className="mt-2 text-xs">Where creativity meets consciousness.</p><p className="mt-3 text-xs opacity-80">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p></div>
       <div className="flex flex-wrap gap-3">
-        <Button asChild variant="outline" className="portal-outline rounded-full"><Link to="/">Sha's Worlds <ArrowRight /></Link></Button>
-        <Button asChild variant="neon" className="rounded-full"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World <ArrowUpRight /></a></Button>
+        <Button asChild variant="outline" className="portal-outline rounded-full"><Link to="/">Sha's Worlds</Link></Button>
+        <Button asChild variant="neon" className="rounded-full"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World</a></Button>
       </div>
     </footer>
   </main>;
