@@ -2,7 +2,6 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ShaLettering } from "@/components/sha-lettering";
 
 export function SiteHeader() {
   const pathname = useRouterState({ select: (state) => state.location.pathname });
@@ -23,7 +22,7 @@ export function SiteHeader() {
   </>;
   return <header className={`site-header fixed inset-x-0 top-0 z-50 ${scrolled || open || pathname !== "/" ? "is-scrolled" : ""}`}>
     <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 py-5 md:px-10">
-      <Link to="/" hash="portal" aria-label="SHA — home" className="brand-mark nav-brand inline-flex shrink-0 flex-col items-center leading-none" onClick={() => setOpen(false)}><ShaLettering /><span className="nav-brand-sub mt-1 block text-[7px] font-semibold uppercase">Creator of Worlds</span></Link>
+      <Link to="/" hash="portal" aria-label="SHA — home" className="nav-brand inline-flex shrink-0 flex-col items-center leading-none" onClick={() => setOpen(false)}><span className="nav-brand-title text-3xl font-normal">SHA</span><span className="nav-brand-sub mt-1 block text-[7px] font-semibold uppercase">Creator of Worlds</span></Link>
       <div className="hidden items-center gap-7 text-xs font-semibold uppercase lg:flex">{links}</div>
       <div className="flex items-center gap-2">
         <Button variant="ghost" size="icon" className="lg:hidden" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button>
