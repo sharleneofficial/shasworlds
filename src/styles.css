@@ -146,7 +146,8 @@
 .eyebrow { letter-spacing: 0.3em; opacity: 0.85; text-shadow: var(--hero-shadow); }
 /* The Debut EP label is stamped in a glowing pink pill so it reads first. */
 .eyebrow-pill { display: inline-flex; align-items: center; gap: 8px; padding: 7px 18px; border-radius: 999px; background: color-mix(in srgb, var(--neon-pink) 72%, transparent); border: 1.5px solid #ffd1ea; box-shadow: var(--pink-glow); opacity: 1; text-shadow: none; font-weight: 700; }
-.glow-heading { color: #fff; text-shadow: 0 0 16px rgb(255 110 199 / 55%), var(--hero-shadow); }
+/* Calmer section headings: no heavy neon glow, so the January stamp and the live release stay the loudest highlights. */
+.glow-heading { color: #fff; text-shadow: 0 0 10px rgb(255 110 199 / 28%), 0 2px 12px rgb(60 0 60 / 30%); }
 
 /* Glass vault cards */
 .vault-card { background: rgb(255 255 255 / 12%); border: 1px solid rgb(255 255 255 / 30%); backdrop-filter: blur(14px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; text-align: left; }
@@ -217,13 +218,14 @@
 .about-portrait { border: 3px solid #ffd1ea; box-shadow: 0 0 18px #ff6ec7, 0 0 50px rgb(255 110 199 / 55%); }
 .portal-outline { background: rgb(255 255 255 / 12%); color: #fff; border: 2px solid #ffd1ea; box-shadow: 0 0 16px rgb(255 110 199 / 60%); }
 .portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
-.footer-panel { background: color-mix(in srgb, var(--neon-pink) 82%, rgb(255 255 255 / 22%)); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 34px rgb(255 110 199 / 40%); }
+.footer-panel { background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 24px rgb(255 110 199 / 28%); }
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
 /* Softer rose glass connects the image tiles to the vivid pink garden. */
-#saga { background: var(--story-background); color: var(--story-foreground); }
-#saga .glow-heading { color: var(--story-foreground); text-shadow: var(--hero-shadow); }
+/* Heading strip on white; the lilac story background lives only on the card area below. */
+#saga { color: var(--story-foreground); }
+.saga-body { background: var(--story-background); color: var(--story-foreground); }
 #saga .saga-card { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: var(--story-shadow); }
 #saga .vault-icon { background: var(--story-card); border-color: var(--story-border); color: var(--story-foreground); box-shadow: none; }
 #saga .saga-thumb { border-color: var(--story-border); }
