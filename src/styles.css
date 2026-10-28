@@ -90,9 +90,9 @@
   /* Luminous lilac-purple, matching the footer's former glass tone. */
   --story-background: linear-gradient(168deg, #C17CCB 0%, #CD8AD4 55%, #DA98DE 100%);
   --story-foreground: var(--hero-foreground);
-  /* Pink glass cards so the Story Arc belongs to the page's pink palette. */
-  --story-card: rgb(255 46 154 / 32%);
-  --story-card-featured: color-mix(in srgb, var(--neon-pink) 68%, rgb(255 255 255 / 18%));
+  /* Pink glass cards deep enough to keep white text readable over them. */
+  --story-card: rgb(186 24 116 / 68%);
+  --story-card-featured: color-mix(in srgb, var(--neon-pink) 60%, #8E0F57);
   --story-border: rgb(255 209 234 / 55%);
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
 }
