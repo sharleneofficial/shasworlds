@@ -5,7 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Syne", ui-sans-serif, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, sans-serif;
+  --font-brand: "Syne", ui-sans-serif, sans-serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -111,22 +112,25 @@
 
 /* EP section — zoomed room crop that never reveals the whole room */
 .ep-section { color: #fff; }
-.ep-room-art { transform: scale(1.65); object-position: 72% 28%; filter: saturate(1.25); }
-.ep-scrim { background: linear-gradient(100deg, rgb(120 10 90 / 78%) 0%, rgb(90 10 100 / 55%) 45%, rgb(30 20 90 / 45%) 100%); }
+.ep-room-frame { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%); mask-image: linear-gradient(90deg, transparent 0%, #000 28%); }
+.ep-room-art { transform: scale(1.65); transform-origin: 70% 30%; object-position: 72% 28%; filter: saturate(1.2); }
+.brand-mark { font-family: var(--font-brand); }
+.ep-section { background: linear-gradient(115deg, #c2478f 0%, #b25aa8 40%, #6f7fd0 75%, #3aa6d8 100%); }
+.ep-scrim { background: linear-gradient(90deg, rgb(194 71 143 / 70%) 0%, rgb(178 90 168 / 25%) 40%, transparent 60%), linear-gradient(180deg, transparent 45%, rgb(150 80 170 / 55%) 75%, rgb(90 120 210 / 70%) 100%); }
 .eyebrow { letter-spacing: 0.3em; opacity: 0.85; text-shadow: var(--hero-shadow); }
 .glow-heading { color: #fff; text-shadow: 0 0 16px rgb(255 110 199 / 55%), var(--hero-shadow); }
 
 /* Glass vault cards */
-.vault-card { background: rgb(255 255 255 / 10%); border: 1.5px solid rgb(255 255 255 / 35%); backdrop-filter: blur(14px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; text-align: center; }
-.vault-live { border: 2px solid var(--neon-pink-soft); box-shadow: var(--pink-glow), var(--shadow-soft); background: rgb(255 46 154 / 16%); }
+.vault-card { background: rgb(255 255 255 / 12%); border: 1px solid rgb(255 255 255 / 30%); backdrop-filter: blur(14px) saturate(150%); box-shadow: var(--shadow-soft); color: #fff; text-align: left; }
+.vault-live { border: 2.5px solid #ffd1ea; box-shadow: var(--pink-glow), var(--shadow-soft); background: rgb(255 46 154 / 16%); }
 .vault-icon { background: rgb(255 255 255 / 14%); border: 1.5px solid rgb(255 255 255 / 45%); color: #fff; box-shadow: 0 0 14px rgb(255 110 199 / 45%); }
 .vault-live .vault-icon { background: var(--neon-pink); border-color: rgb(255 255 255 / 60%); box-shadow: var(--pink-glow); }
-.vault-status { background: rgb(255 255 255 / 16%); border: 1px solid rgb(255 255 255 / 30%); color: #fff; }
-.vault-live .vault-status { background: var(--neon-pink); border-color: transparent; }
+.vault-status { color: rgb(255 190 225); letter-spacing: 0.04em; }
+.vault-live .vault-status { color: #ffb3dc; }
 .status-dot { background: #fff; }
 .transmitting { animation: transmission-pulse 2.5s ease-in-out infinite; }
 .vault-presave { background: rgb(255 255 255 / 14%); color: rgb(255 255 255 / 75%); border-color: rgb(255 255 255 / 30%); opacity: 1; }
-@keyframes transmission-pulse { 0%, 100% { box-shadow: 0 0 6px var(--neon-pink); } 50% { box-shadow: 0 0 22px var(--neon-pink); } }
+@keyframes transmission-pulse { 0%, 100% { text-shadow: 0 0 4px var(--neon-pink); } 50% { text-shadow: 0 0 14px var(--neon-pink); } }
 
 /* World tiles — full-bleed, edge to edge */
 .world-tile { color: #fff; }
