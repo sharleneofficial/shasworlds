@@ -41,11 +41,11 @@ const worlds = [
 ];
 
 const saga = [
-  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: epRoom.url, locked: false, mystery: true },
-  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, locked: true, mystery: false },
-  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, locked: true, mystery: false },
-  { n: "02", tag: "The Saga's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: epRoom.url, locked: false, mystery: false },
-  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: hero.url, locked: false, mystery: false },
+  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: epRoom.url, imgRight: null, locked: false, mystery: true },
+  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false },
+  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false },
+  { n: "02", tag: "The Saga's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: epRoom.url, imgRight: epRoom.url, locked: false, mystery: false },
+  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: hero.url, imgRight: hero.url, locked: false, mystery: false },
 ];
 
 const XIcon = (p: { className?: string }) => (
@@ -146,24 +146,24 @@ function Index() {
       </section>
 
       {/* Worlds */}
-      <section id="worlds" className="scroll-mt-24 px-5 py-24">
-        <div className="mx-auto max-w-7xl">
+      <section id="worlds" className="scroll-mt-24 pt-20">
+        <div className="mx-auto max-w-7xl px-5">
           <h2 className="glow-heading text-center font-display text-4xl font-extrabold uppercase md:text-5xl">4 Forms of Creation</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">One vision. Infinite expressions.</p>
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {worlds.map(({ icon: Icon, title, img, text }) => (
-              <article key={title} className="world-tile lift relative isolate overflow-hidden rounded-2xl">
-                <img src={img} alt={title} loading="lazy" width={800} height={1008} className="h-[420px] w-full object-cover" />
-                <div className="world-tile-overlay absolute inset-0 flex flex-col items-center justify-end p-6 text-center">
-                  <div className="vault-icon flex h-14 w-14 items-center justify-center rounded-full">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 text-sm font-extrabold uppercase">{title}</h3>
-                  <p className="mt-2 text-xs leading-relaxed">{text}</p>
+        </div>
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4">
+          {worlds.map(({ icon: Icon, title, img, text }) => (
+            <article key={title} className="world-tile relative isolate overflow-hidden">
+              <img src={img} alt={title} loading="lazy" width={800} height={1000} className="h-[440px] w-full object-cover sm:h-[500px] lg:h-[580px]" />
+              <div className="world-tile-overlay absolute inset-0 flex flex-col items-center justify-end p-6 pb-10 text-center">
+                <div className="vault-icon flex h-14 w-14 items-center justify-center rounded-full">
+                  <Icon className="h-6 w-6" />
                 </div>
-              </article>
-            ))}
-          </div>
+                <h3 className="mt-4 text-sm font-extrabold uppercase">{title}</h3>
+                <p className="mt-2 text-xs leading-relaxed">{text}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
