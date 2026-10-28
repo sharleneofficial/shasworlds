@@ -92,7 +92,7 @@
   --story-foreground: var(--hero-foreground);
   /* Pink glass cards deep enough to keep white text readable over them. */
   --story-card: rgb(186 24 116 / 68%);
-  --story-card-featured: color-mix(in srgb, var(--neon-pink) 60%, #8E0F57);
+  --story-card-featured: #E01A80;
   --story-border: rgb(255 209 234 / 55%);
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
 }
@@ -219,8 +219,8 @@
 #saga .saga-line::before { background: var(--story-border); }
 #saga .saga-card:hover { border-color: #fff; }
 /* The 4-Track Debut EP entry stays in place but glows as the live chapter. */
-#saga .saga-card-featured { background: var(--story-card-featured); border: 2px solid #ffd1ea; box-shadow: var(--pink-glow), var(--story-shadow); }
-#saga .saga-card-featured .saga-tag { color: #fff; opacity: 1; }
+#saga .saga-card-featured { background: var(--story-card-featured); border: 2.5px solid #fff; box-shadow: 0 0 0 5px rgb(255 255 255 / 22%), 0 0 30px color-mix(in srgb, var(--neon-pink) 80%, transparent), 0 0 70px color-mix(in srgb, var(--neon-pink) 45%, transparent); transform: translateY(-2px) scale(1.015); z-index: 1; }
+#saga .saga-card-featured .saga-tag { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #fff; color: var(--neon-pink); opacity: 1; }
 #saga .saga-card-featured:hover { border-color: #fff; }
 /* Keep small labels crisp over the saturated pink. */
 #saga .saga-card .saga-tag { color: #fff; opacity: 1; text-shadow: 0 1px 6px rgb(120 10 80 / 45%); }
