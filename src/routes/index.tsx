@@ -7,7 +7,7 @@ import epRoom from "@/assets/ep-room.png.asset.json";
 import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
 import worldMusic from "@/assets/world-music.jpg";
 import worldFilm from "@/assets/world-film.jpg";
-import worldFashionAsset from "@/assets/world-fashion-runway-2.png.asset.json";
+import worldFashionAsset from "@/assets/world-fashion-runway-3.png.asset.json";
 const worldFashion = worldFashionAsset.url;
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
