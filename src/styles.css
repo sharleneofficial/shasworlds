@@ -186,9 +186,9 @@
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-/* Track cover art — heavily blurred until published so nothing on the artwork (titles, art) is readable. */
+/* Track cover art — softened until published: shapes and colors show, but no details are readable. */
 .vault-cover { border: 1px solid rgb(255 255 255 / 35%); }
-.cover-blurred { filter: blur(30px) saturate(1.35) brightness(1.05); transform: scale(1.55); }
+.cover-blurred { filter: blur(6px) saturate(1.25) brightness(1.05); transform: scale(1.25); }
 
 /* Release stamp stays above the square artwork, never over it. */
 .release-stamp { display: flex; flex-direction: column; align-items: center; padding: 5px 18px; border: 1px solid var(--glass-border); border-radius: 999px; background: var(--release-stamp-background); color: var(--release-stamp-foreground); box-shadow: var(--release-stamp-shadow); backdrop-filter: blur(12px); text-transform: uppercase; line-height: 1.15; }
