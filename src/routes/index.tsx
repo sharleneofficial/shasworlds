@@ -149,12 +149,12 @@ function Index() {
       </section>
 
       {/* Worlds */}
-      <section id="worlds" className="scroll-mt-24 pt-20">
-        <div className="mx-auto max-w-7xl px-5">
-          <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">4 Forms of Creation</h2>
+      <section id="worlds" className="scroll-mt-24">
+        <div className="creation-heading-band px-5 pb-12 pt-20">
+          <h2 className="text-center font-display text-3xl font-medium uppercase md:text-4xl">4 Forms of Creation</h2>
           <p className="mt-3 text-center text-sm uppercase sm:text-base">One vision. Infinite expressions.</p>
         </div>
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4">
           {worlds.map(({ icon: Icon, title, img, text }) => (
             <article key={title} className="world-tile relative isolate overflow-hidden">
               <img src={img} alt={title} loading="lazy" width={800} height={1000} className="h-[440px] w-full object-cover sm:h-[500px] lg:h-[580px]" />

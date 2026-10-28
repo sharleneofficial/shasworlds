@@ -97,6 +97,8 @@
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
   --contact-scrim: linear-gradient(105deg, rgb(115 30 105 / 88%) 0%, rgb(169 48 126 / 83%) 48%, rgb(157 73 160 / 77%) 100%);
   --contact-link-background: color-mix(in srgb, var(--neon-pink-soft) 28%, transparent);
+  --creation-heading-background: #FFFFFF;
+  --creation-heading-foreground: #34313A;
 }
 
 @layer base {
@@ -111,9 +113,10 @@
 .site-header:not(.is-scrolled) .nav-link, .site-header:not(.is-scrolled) .brand-mark { text-shadow: var(--hero-shadow); }
 .site-header.is-scrolled { background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 1px 0 rgb(255 255 255 / 18%); }
 .brand-sub { letter-spacing: 0.28em; opacity: 0.85; margin-top: 2px; }
-.nav-link { transition: opacity 200ms; letter-spacing: 0.12em; }
+.nav-link { transition: opacity 200ms; letter-spacing: 0.12em; text-decoration: none; }
 .nav-link:hover { opacity: 0.7; }
-.nav-link[aria-current="page"] { text-decoration: underline; text-underline-offset: 7px; }
+.nav-link[aria-current="page"] { text-decoration: none; }
+.creation-heading-band { background: var(--creation-heading-background); color: var(--creation-heading-foreground); }
 .mobile-navigation { border-top: 1px solid var(--glass-border); }
 .contact-page { color: var(--hero-foreground); }
 .contact-scrim { background: var(--contact-scrim); }
