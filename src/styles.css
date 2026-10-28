@@ -91,7 +91,7 @@
   --story-background: linear-gradient(168deg, #C17CCB 0%, #CD8AD4 55%, #DA98DE 100%);
   --story-foreground: var(--hero-foreground);
   /* Pink glass cards deep enough to keep white text readable over them. */
-  --story-card: rgb(186 24 116 / 68%);
+  --story-card: rgb(231 92 150 / 72%);
   --story-card-featured: #E01A80;
   --story-border: rgb(255 209 234 / 55%);
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
@@ -207,7 +207,7 @@
 .portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
 .footer-panel { background: color-mix(in srgb, var(--neon-pink) 82%, rgb(255 255 255 / 22%)); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 34px rgb(255 110 199 / 40%); }
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
-.portal-form { border: 1.5px solid #ffd1ea; background: rgb(255 255 255 / 12%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
+.portal-form { border: 1.5px solid #ffd1ea; background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
 /* Softer rose glass connects the image tiles to the vivid pink garden. */
 #saga { background: var(--story-background); color: var(--story-foreground); }

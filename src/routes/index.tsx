@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
 import epRoom from "@/assets/ep-room.png.asset.json";
 import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
-import worldMusic from "@/assets/world-music.jpg";
+import worldMusicAsset from "@/assets/world-music.png.asset.json";
 import worldFilm from "@/assets/world-film.jpg";
-import worldFashion from "@/assets/world-fashion.jpg";
+import worldFashionAsset from "@/assets/world-fashion.png.asset.json";
+const worldMusic = worldMusicAsset.url;
+const worldFashion = worldFashionAsset.url;
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
 import profile from "@/assets/sha-about-frameless.jpg";
@@ -45,8 +47,8 @@ const nav = [
 
 const worlds = [
   { icon: AudioWaveform, title: "Music", img: worldMusic, text: "Sound as frequency. Elevated music that awakens, heals, and expands." },
-  { icon: Shirt, title: "Fashion", img: worldFashion, text: "Wear the future. High-fashion as expression, identity, and art." },
   { icon: Film, title: "Film & Narrative", img: worldFilm, text: "Stories that shift realities. Cinematic worlds that mirror the journey within." },
+  { icon: Shirt, title: "Fashion", img: worldFashion, text: "Wear the future. High-fashion as expression, identity, and art." },
   { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Build the new Earth. Immersive experiences that connect, transform, and elevate." },
 ];
 
@@ -222,7 +224,7 @@ function Index() {
 
       {/* About + Footer */}
       <section id="about" className="about-section relative isolate scroll-mt-24 overflow-hidden px-5 pb-10 pt-24">
-        <img src={aboutBg} alt="" aria-hidden="true" loading="lazy" width={1376} height={768} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src={aboutBg} style={{ filter: "saturate(0.8) brightness(0.96)" }} alt="" aria-hidden="true" loading="lazy" width={1376} height={768} className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-start">
           <img src={profile} alt="SHA portrait" loading="lazy" className="about-portrait h-60 w-60 shrink-0 rounded-full object-cover md:h-72 md:w-72" />
           <div className="text-center md:text-left">
