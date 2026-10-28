@@ -9,13 +9,22 @@ import worldFilm from "@/assets/world-film.jpg";
 import worldFashion from "@/assets/world-fashion.jpg";
 import worldTech from "@/assets/world-tech.jpg";
 import { tracks } from "@/lib/tracks";
+import profile from "@/assets/sha-profile.png.asset.json";
+import aboutBg from "@/assets/about-bg.jpg";
+import cover01 from "@/assets/ep-cover.jpg";
+import cover02 from "@/assets/cover-02.jpg";
+import cover03 from "@/assets/cover-03.jpg";
+import cover04 from "@/assets/cover-04.jpg";
+
+// Placeholder square cover art per track; stays blurred until the track is published (isLocked false + preSaveUrl live).
+const covers = [cover01, cover02, cover03, cover04];
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SHASWORLDS — Where Creativity Meets Consciousness" },
+      { title: "Sha's Worlds — Where Creativity Meets Consciousness" },
       { name: "description", content: "SHA: music, film, fashion and immersive technology. One multidimensional world. The Debut EP transmits sequentially starting January." },
-      { property: "og:title", content: "SHASWORLDS — Where Creativity Meets Consciousness" },
+      { property: "og:title", content: "Sha's Worlds — Where Creativity Meets Consciousness" },
       { property: "og:description", content: "The Debut EP transmits sequentially starting January. Enter the world." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -89,7 +98,7 @@ function Index() {
       <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center overflow-hidden">
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
         <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
-          <h1 className="hero-title font-display text-[clamp(2.5rem,7vw,6rem)] font-semibold uppercase leading-none">Shasworlds</h1>
+          <h1 className="hero-title text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none">Sha&apos;s Worlds</h1>
           <p className="hero-tagline mt-6 max-w-md text-2xl font-semibold leading-snug sm:text-3xl">
             Where creativity<br />meets consciousness.
           </p>
@@ -123,12 +132,17 @@ function Index() {
           </div>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {tracks.map((t, index) => (
-              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl px-5 py-7 ${t.isLocked ? "" : "vault-live"}`}>
-                <div className="vault-icon mx-auto flex h-16 w-16 items-center justify-center rounded-full">
-                  {t.isLocked ? <Lock className="h-6 w-6" /> : <AudioWaveform className="h-7 w-7" />}
+              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live"}`}>
+                <div className="vault-cover relative aspect-square w-full overflow-hidden rounded-lg">
+                  <img src={covers[index]} alt={t.preSaveUrl ? `${t.label} cover art` : ""} aria-hidden={t.preSaveUrl ? undefined : true} loading="lazy" width={816} height={816} className={`h-full w-full object-cover ${t.preSaveUrl ? "" : "cover-blurred"}`} />
                 </div>
-                <h3 className="mt-6 font-sans text-xs uppercase opacity-80">{t.label}</h3>
-                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="vault-icon flex h-7 w-7 shrink-0 items-center justify-center rounded-full">
+                    {t.isLocked ? <Lock className="h-3.5 w-3.5" /> : <AudioWaveform className="h-4 w-4" />}
+                  </span>
+                  <h3 className="font-sans text-xs uppercase opacity-80">{t.label}</h3>
+                </div>
+                                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
                 <p className={`vault-status mt-1 text-[11px] uppercase ${t.isLocked ? "" : "transmitting"}`}>
                   {t.isLocked ? (index === 1 ? "Releasing Next" : "Coming Soon") : "Coming in January"}
                 </p>
@@ -198,17 +212,27 @@ function Index() {
         </div>
       </section>
 
-      {/* Connect / Footer */}
-      <footer id="connect" className="scroll-mt-24 px-5 pb-10 pt-20">
-        <div className="mx-auto grid max-w-6xl gap-10 border-t border-white/25 pt-10 md:grid-cols-3">
-          <div>
-            <p className="font-display text-2xl font-medium uppercase">Shasworlds</p>
-            <p className="mt-2 text-sm opacity-85">Where creativity meets consciousness.</p>
-            <p className="mt-6 text-xs opacity-70">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
+      {/* About + Footer */}
+      <section id="about" className="about-section relative isolate scroll-mt-24 overflow-hidden px-5 pb-10 pt-24">
+        <img src={aboutBg} alt="" aria-hidden="true" loading="lazy" width={1376} height={768} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-start">
+          <img src={profile.url} alt="SHA portrait" loading="lazy" className="about-portrait h-60 w-60 shrink-0 rounded-full object-cover md:h-72 md:w-72" />
+          <div className="text-center md:text-left">
+            <h2 className="font-display text-3xl font-light uppercase md:text-4xl">About SHA</h2>
+            <p className="mt-4 leading-relaxed opacity-95">SHA is a multidimensional creator, wayshower, and visionary architect of New Earth. She merges music, film, fashion, and immersive technology to channel frequencies that awaken consciousness and elevate culture.</p>
+            <p className="mt-4 leading-relaxed opacity-95">Through art and innovation, SHA builds worlds that remember who we are — inspiring a global movement of creators and dreamers to embody love, freedom, and unity in the new era.</p>
+            <Button asChild variant="outline" size="lg" className="portal-outline mt-7 h-12 rounded-full px-8 uppercase"><a href="#ep">Enter the Portal <ArrowRight /></a></Button>
           </div>
+        </div>
+        <footer id="connect" className="footer-panel mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 rounded-3xl px-8 py-8 md:grid-cols-3 md:divide-x md:divide-white/40">
           <div>
-            <p className="text-xs font-bold uppercase opacity-75">Connect</p>
-            <div className="mt-4 flex flex-wrap gap-3">
+            <p className="font-display text-3xl font-light uppercase">Sha&apos;s Worlds</p>
+            <p className="mt-3 text-sm opacity-90">Where creativity meets consciousness.</p>
+            <p className="mt-4 text-xs opacity-80">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
+          </div>
+          <div className="text-center md:px-6">
+            <p className="text-sm uppercase tracking-widest">Connect</p>
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
               {socials.map(({ label, href, icon: Icon }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="social-orb flex h-11 w-11 items-center justify-center rounded-full">
                   <Icon className="h-5 w-5" />
@@ -216,20 +240,20 @@ function Index() {
               ))}
             </div>
           </div>
-          <div>
-            <p className="text-xs font-bold uppercase opacity-75">Join the Portal</p>
-            <p className="mt-2 text-xs leading-relaxed opacity-85">Be the first to access releases, worlds, and multidimensional experiences.</p>
+          <div className="md:pl-8">
+            <p className="text-sm uppercase tracking-widest">Join the Portal</p>
+            <p className="mt-2 text-xs leading-relaxed opacity-90">Be the first to access releases, worlds, and multidimensional experiences.</p>
             {joined ? (
               <p className="mt-4 rounded-full px-4 py-3 text-xs font-semibold glass-chip">The portal opens soon — you're on the list.</p>
             ) : (
-              <form className="mt-4 flex gap-2" onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
-                <input required type="email" placeholder="Enter your email" aria-label="Email address" className="portal-input h-11 w-full rounded-full px-4 text-sm" />
-                <Button type="submit" variant="neon" className="h-11 rounded-full px-4" aria-label="Join the portal"><ArrowRight /></Button>
+              <form className="portal-form mt-4 flex items-center rounded-full pr-1" onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
+                <input required type="email" placeholder="Enter your email" aria-label="Email address" className="h-11 w-full bg-transparent px-4 text-sm outline-none placeholder:opacity-70" />
+                <Button type="submit" variant="ghost" size="icon" className="rounded-full" aria-label="Join the portal"><ArrowRight /></Button>
               </form>
             )}
           </div>
-        </div>
-      </footer>
+        </footer>
+      </section>
     </div>
   );
 }
