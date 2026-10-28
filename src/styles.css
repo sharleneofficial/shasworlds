@@ -96,7 +96,11 @@
   --story-border: rgb(255 209 234 / 55%);
   --story-shadow: 0 10px 30px -18px rgb(93 37 68 / 35%);
   --contact-scrim: linear-gradient(105deg, rgb(115 30 105 / 88%) 0%, rgb(169 48 126 / 83%) 48%, rgb(157 73 160 / 77%) 100%);
-  --contact-link-background: color-mix(in srgb, var(--neon-pink-soft) 28%, transparent);
+  --contact-accent: #D9548C;
+  --contact-accent-deep: #B93E73;
+  --contact-accent-soft: #F2A2C6;
+  --contact-link-background: color-mix(in srgb, var(--contact-accent-soft) 24%, transparent);
+  --contact-link-hover: linear-gradient(135deg, #E06A9C 0%, #C2437D 100%);
   --creation-heading-background: #FFFFFF;
   --creation-heading-foreground: #34313A;
 }
@@ -121,8 +125,9 @@
 .contact-page { color: var(--hero-foreground); }
 .contact-scrim { background: var(--contact-scrim); }
 .contact-title { font-family: var(--font-hero); text-shadow: var(--hero-shadow); }
-.contact-link { background: var(--contact-link-background); color: var(--hero-foreground); border-color: var(--glass-border); }
-.contact-link:hover { background: var(--neon-pink); color: var(--hero-foreground); box-shadow: var(--pink-glow); }
+.contact-link { background: var(--contact-link-background); color: var(--hero-foreground); border-color: color-mix(in srgb, var(--contact-accent-soft) 40%, transparent); transition: background-color .2s, border-color .2s, box-shadow .2s, transform .2s; }
+.contact-link:hover { background-color: var(--contact-accent); background-image: var(--contact-link-hover); color: #fff; border-color: transparent; box-shadow: 0 10px 26px rgb(150 45 100 / 30%); transform: translateY(-1px); }
+.contact-link:hover svg { color: #fff; }
 
 /* Hero */
 .cinematic-hero { color: var(--hero-foreground); }

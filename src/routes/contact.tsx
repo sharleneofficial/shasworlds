@@ -59,8 +59,8 @@ function ContactPage() {
     <footer className="footer-panel mx-auto mt-20 flex max-w-6xl flex-col justify-between gap-6 rounded-lg p-6 sm:flex-row sm:items-center">
       <div><p className="font-display text-2xl">Sha's Worlds</p><p className="mt-2 text-xs">Where creativity meets consciousness.</p><p className="mt-3 text-xs opacity-80">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p></div>
       <div className="flex flex-wrap gap-3">
-        <Button asChild variant="outline" className="portal-outline rounded-full"><Link to="/">Sha's Worlds <ArrowRight /></Link></Button>
-        <Button asChild variant="neon" className="rounded-full"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World <ArrowUpRight /></a></Button>
+        <Button asChild variant="outline" className="portal-outline rounded-full"><Link to="/">Sha's Worlds</Link></Button>
+        <Button asChild variant="neon" className="rounded-full"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World</a></Button>
       </div>
     </footer>
   </main>;
