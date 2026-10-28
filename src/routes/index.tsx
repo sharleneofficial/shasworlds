@@ -74,7 +74,7 @@ function Index() {
     <div className="min-h-screen">
       <header className={`site-header fixed inset-x-0 top-0 z-50 ${scrolled ? "is-scrolled" : ""}`}>
         <nav aria-label="Main navigation" className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5 md:px-10">
-          <a href="#portal" className="brand-mark font-display text-2xl font-extrabold leading-none">
+          <a href="#portal" className="brand-mark text-2xl font-extrabold leading-none">
             SHA
             <span className="brand-sub block text-[8px] font-semibold uppercase">Creator of Worlds</span>
           </a>
