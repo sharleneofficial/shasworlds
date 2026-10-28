@@ -91,7 +91,7 @@ function Index() {
             Where creativity meets consciousness. Exploring the convergence of music, film, fashion, and immersive technology.
           </p>
           <div className="mt-9 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="h-12 w-full rounded-full px-6 sm:w-auto"><a href="#ep">Explore the Debut EP <ArrowRight /></a></Button>
+            <Button asChild variant="electric" size="lg" className="h-12 w-full rounded-full px-6 sm:w-auto"><a href="#ep">Explore the Debut EP <ArrowRight /></a></Button>
             <Button asChild variant="hero" size="lg" className="h-12 w-full rounded-full px-6 sm:w-auto"><a href="#saga">The Journey & The Saga</a></Button>
           </div>
         </div>
@@ -99,7 +99,8 @@ function Index() {
       </section>
 
       {/* EP */}
-      <section id="ep" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-20">
+      <section id="ep" className="ep-section scroll-mt-24 px-5 py-20">
+        <div className="mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-bold md:text-5xl">The Debut EP</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">A four-track journey across New Earth. Transmitting sequentially starting January.</p>
@@ -109,14 +110,18 @@ function Index() {
             <img src={epCover} alt="The Debut EP — era visual" loading="lazy" width={1024} height={1024} className="aspect-square w-full rounded-lg object-cover" />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {tracks.map((t) => (
-              <article key={t.label} className={`track-card lift rounded-lg p-6 ${t.isLocked ? "" : "featured-card"}`}>
+            {tracks.map((t, index) => (
+              <article key={t.label} className={`track-card vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-lg p-6 ${t.isLocked ? "" : "featured-card"}`}>
+                <img src={epCover} alt="" aria-hidden="true" loading="lazy" className="vault-art absolute inset-0 -z-20 h-full w-full object-cover" />
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold">{t.label}</h3>
-                  {t.isLocked ? <Lock className="h-4 w-4 text-muted-foreground" /> : <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-aqua" />}
+                  <h3 className="text-2xl font-extrabold uppercase">{t.label}</h3>
+                  {t.isLocked ? <Lock className="vault-lock h-7 w-7" /> : <Sparkles className="vault-lock h-6 w-6" />}
                 </div>
-                <p className="mt-1 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{t.status}</p>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t.details}</p>
+                <p className={`vault-status mt-4 inline-flex items-center gap-2 rounded-full px-3 py-2 text-[10px] font-bold uppercase ${t.isLocked ? "" : "transmitting"}`}>
+                  {!t.isLocked && <span className="status-dot h-1.5 w-1.5 rounded-full" />}
+                  {t.isLocked ? t.status : "Transmitting January"}
+                </p>
+                <p className="vault-details mt-4 text-sm leading-relaxed">{t.details}</p>
                 {!t.isLocked && (
                   t.preSaveUrl ? (
                     <Button asChild className="mt-5 rounded-full"><a href={t.preSaveUrl} target="_blank" rel="noreferrer">Pre-Save</a></Button>
@@ -127,6 +132,7 @@ function Index() {
               </article>
             ))}
           </div>
+        </div>
         </div>
       </section>
 

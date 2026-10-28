@@ -73,6 +73,16 @@
   --hero-button: rgb(255 255 255 / 85%);
   --shadow-soft: 0 8px 24px -12px rgb(20 35 45 / 15%);
   --shadow-glow: 0 14px 30px -16px rgb(20 35 45 / 22%);
+  --electric-turquoise: #00F0FF;
+  --electric-violet: #D946EF;
+  --electric-gold: #F59E0B;
+  --electric-pink: #EC4899;
+  --ep-sky: #86DDE9;
+  --world-surface: #ECF7F8;
+  --saga-surface: #F5EDF8;
+  --vault-glass: rgb(255 255 255 / 72%);
+  --holographic: linear-gradient(110deg, var(--hero-foreground) 10%, var(--electric-turquoise) 52%, var(--coral) 92%);
+  --holographic-shadow: 0 3px 2px rgb(20 35 45 / 22%);
 }
 
 @layer base {
@@ -89,16 +99,39 @@
 .cinematic-hero { color: var(--hero-foreground); }
 .cinematic-hero::before { content: ""; position: absolute; inset: 0; background: var(--hero-scrim); z-index: -10; }
 .hero-content { transform: translateY(5%); }
-.hero-title { text-shadow: var(--hero-shadow); line-height: 1; }
+.hero-title { background: var(--holographic); background-clip: text; color: transparent; filter: drop-shadow(var(--holographic-shadow)); -webkit-text-stroke: .7px var(--hero-foreground); line-height: 1; }
 .hero-tagline { text-shadow: var(--hero-shadow); font-weight: 500; }
 .hero-badge { background: var(--glass); border: 1px solid var(--glass-border); backdrop-filter: blur(12px); text-shadow: var(--hero-shadow); }
 .hero-scroll { border: 1px solid var(--glass-border); border-radius: 50%; padding: 10px; background: var(--glass); backdrop-filter: blur(8px); }
 .hero-button { background: var(--hero-button); }
 .hero-button:hover { background: var(--background); }
 .track-card, .content-card { background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow-soft); }
-.track-card { min-height: 220px; }
-.featured-card { border: 2px solid var(--aqua); }
-.artwork-frame { border: 1px solid var(--border); padding: 5px; border-radius: 8px; }
+.electric-button { border-color: transparent; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.electric-button:hover { border-color: var(--electric-turquoise); box-shadow: 0 0 22px color-mix(in srgb, var(--electric-turquoise) 65%, transparent); transform: translateY(-2px); }
+.ep-section { background: var(--ep-sky); }
+#worlds { background: var(--world-surface); max-width: none; }
+#worlds > * { max-width: 1112px; margin-left: auto; margin-right: auto; }
+#saga { background: var(--saga-surface); max-width: none; }
+#saga > * { max-width: 984px; margin-left: auto; margin-right: auto; }
+.vault-card { --vault-accent: var(--electric-turquoise); min-height: 256px; border: 3px solid var(--vault-accent); background: var(--card); box-shadow: 0 0 18px color-mix(in srgb, var(--vault-accent) 28%, transparent), var(--shadow-soft); }
+.vault-2 { --vault-accent: var(--electric-violet); }
+.vault-3 { --vault-accent: var(--electric-gold); }
+.vault-4 { --vault-accent: var(--electric-pink); }
+.vault-card::before { content: ""; position: absolute; inset: 0; z-index: -10; background: linear-gradient(135deg, var(--vault-glass), color-mix(in srgb, var(--vault-accent) 18%, var(--vault-glass))); backdrop-filter: blur(16px) saturate(200%); }
+.vault-art { transform: scale(1.5); filter: saturate(2.4); }
+.vault-2 .vault-art { object-position: 20% 15%; transform: scale(1.8) rotate(12deg); }
+.vault-3 .vault-art { object-position: 80% 75%; transform: scale(2) rotate(-12deg); }
+.vault-4 .vault-art { object-position: 40% 30%; transform: scale(1.7) rotate(180deg); }
+.vault-card:hover { border-color: var(--vault-accent); box-shadow: 0 0 28px color-mix(in srgb, var(--vault-accent) 50%, transparent), var(--shadow-glow); }
+.vault-lock { color: var(--foreground); filter: drop-shadow(0 0 5px var(--vault-accent)); }
+.vault-status { background: var(--vault-accent); color: var(--foreground); }
+.vault-2 .vault-status, .vault-4 .vault-status { color: var(--primary); }
+.vault-details { color: var(--foreground); }
+.status-dot { background: var(--foreground); }
+.transmitting { animation: transmission-pulse 2.5s ease-in-out infinite; }
+.vault-card button:disabled { opacity: 1; background: var(--vault-glass); color: var(--muted-foreground); }
+.artwork-frame { border: 3px solid var(--electric-turquoise); padding: 5px; border-radius: 8px; box-shadow: 0 0 26px color-mix(in srgb, var(--electric-turquoise) 60%, transparent); }
+@keyframes transmission-pulse { 0%, 100% { box-shadow: 0 0 6px var(--electric-turquoise); } 50% { box-shadow: 0 0 20px var(--electric-turquoise); } }
 @utility shadow-glow { box-shadow: var(--shadow-glow); }
 @utility lift {
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
