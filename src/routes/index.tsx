@@ -16,12 +16,12 @@ import pypdVideo from "@/assets/pypd-space.mp4.asset.json";
 import stopVideo from "@/assets/stop-pilot.mp4.asset.json";
 import profile from "@/assets/sha-about-frameless.jpg";
 import aboutBg from "@/assets/about-bright-pink.jpg";
-import cover01Asset from "@/assets/vault-cover-01.png.asset.json";
-import cover02Asset from "@/assets/vault-cover-02.png.asset.json";
-import cover03Asset from "@/assets/vault-cover-03.png.asset.json";
-import cover04Asset from "@/assets/vault-cover-04.png.asset.json";
+import cover01Asset from "@/assets/track-01-sealed.jpg.asset.json";
+import cover02Asset from "@/assets/track-02-sealed.jpg.asset.json";
+import cover03Asset from "@/assets/track-03-sealed.jpg.asset.json";
+import cover04Asset from "@/assets/track-04-sealed.jpg.asset.json";
 
-// Placeholder square cover art per track; stays blurred until the track is published (isLocked false + preSaveUrl live).
+// Sealed covers: the blur is baked into the files, so the sharp art is never online until a track is published.
 const covers = [cover01Asset.url, cover02Asset.url, cover03Asset.url, cover04Asset.url];
 
 export const Route = createFileRoute("/")({
@@ -69,10 +69,9 @@ const XIcon = (p: { className?: string }) => (
 // Only X is a confirmed link; others are placeholders until SHA provides URLs.
 const socials = [
   { label: "X", href: "https://x.com/shasworlds", icon: XIcon },
-  { label: "YouTube", href: "#", icon: Youtube },
-  { label: "Spotify", href: "#", icon: Disc3 },
-  { label: "Telegram", href: "#", icon: Send },
-  { label: "Instagram", href: "#", icon: Instagram },
+  { label: "YouTube", href: "https://www.youtube.com/@ShasWorldsVEVO", icon: Youtube },
+  { label: "Spotify", href: "https://open.spotify.com/album/1uN5nOcxylApUOlYhAkGuH", icon: Disc3 },
+  { label: "Instagram", href: "https://www.instagram.com/shasworlds", icon: Instagram },
 ];
 
 function Index() {
@@ -142,7 +141,7 @@ function Index() {
                   {!t.isLocked && <p className="release-stamp"><span>Coming in</span><strong>January</strong></p>}
                 </div>
                 <div className="vault-cover relative aspect-square w-full overflow-hidden rounded-lg">
-                  <img src={covers[index]} alt={t.preSaveUrl ? `${t.label} cover art` : ""} aria-hidden={t.preSaveUrl ? undefined : true} loading="lazy" width={816} height={816} className={`h-full w-full object-cover ${t.preSaveUrl ? "" : "cover-blurred"}`} />
+                  <div role="presentation" onContextMenu={(e) => e.preventDefault()} onDragStart={(e) => e.preventDefault()} className="sealed-cover h-full w-full" style={{ backgroundImage: `url(${covers[index]})` }} />
                 </div>
                 <div className="mt-4 flex items-center gap-2">
                   <span className="vault-icon flex h-7 w-7 shrink-0 items-center justify-center rounded-full">
