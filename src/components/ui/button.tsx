@@ -17,6 +17,7 @@ const buttonVariants = cva(
         hero: "hero-button border border-glass-border text-foreground backdrop-blur-md shadow-sm",
         electric: "electric-button bg-primary text-primary-foreground border-2 shadow-sm",
         neon: "neon-button border-2",
+        footer: "footer-link",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },

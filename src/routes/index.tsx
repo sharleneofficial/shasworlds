@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Lock, Film, Shirt, Orbit, ArrowRight, Youtube, Instagram, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import hero from "@/assets/sha-cinematic.png.asset.json";
 import epRoom from "@/assets/ep-room.png.asset.json";
@@ -72,7 +71,6 @@ const socials = [
 ];
 
 function Index() {
-  const [joined, setJoined] = useState(false);
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -80,12 +78,13 @@ function Index() {
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
         <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
           <h1 className="hero-title text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none">Sha&apos;s Worlds</h1>
-          <p className="hero-tagline mt-6 max-w-md text-2xl font-semibold leading-snug sm:text-3xl">
-            Where creativity<br />meets consciousness.
+          <p className="hero-tagline mt-6 max-w-xl text-2xl font-semibold leading-snug sm:text-3xl">
+            Beyond imagination into New Earth.
           </p>
-          <p className="hero-sub mt-4 max-w-md text-sm leading-relaxed sm:text-base">
-            Music. Film. Fashion. Technology.<br />One multidimensional world.
+          <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
+            Music. Film. Fashion. Technology.
           </p>
+          <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">Step into the higher timelines.</p>
           <div className="mt-9">
             <Button asChild variant="neon" size="lg" className="h-12 rounded-full px-8 uppercase"><a href="#ep">Enter the World <ArrowRight /></a></Button>
           </div>
@@ -230,37 +229,27 @@ function Index() {
             <Button asChild variant="outline" size="lg" className="portal-outline mt-7 h-12 rounded-full px-8 uppercase"><Link to="/contact">Contact Sha <ArrowRight /></Link></Button>
           </div>
         </div>
-        <footer id="connect" className="footer-panel mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 rounded-3xl px-8 py-8 md:grid-cols-3 md:divide-x md:divide-white/40">
+        <footer id="connect" className="footer-panel footer-light mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 rounded-lg px-6 py-8 sm:px-8 md:grid-cols-[1.4fr_1fr]">
           <div>
             <p className="font-display text-3xl font-light uppercase">Sha&apos;s Worlds</p>
             <p className="mt-3 text-sm opacity-90">Where creativity meets consciousness.</p>
             <div className="mt-4 flex flex-wrap gap-4 text-xs">
-              <Button asChild variant="ghost" size="sm" className="px-0"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World ↗</a></Button>
-              <Button asChild variant="ghost" size="sm" className="px-0"><Link to="/contact">Contact <ArrowRight /></Link></Button>
+              <Button asChild variant="footer" size="sm"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World</a></Button>
+              <Button asChild variant="footer" size="sm"><Link to="/contact">Contact</Link></Button>
             </div>
             <p className="mt-4 text-xs opacity-80">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
           </div>
-          <div className="text-center md:px-6">
+          <div className="footer-connect text-center md:px-6">
             <p className="text-sm uppercase tracking-widest">Connect</p>
             <div className="mt-4 flex flex-wrap justify-center gap-3">
               {socials.map(({ label, href, icon: Icon }) => (
-                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="social-orb flex h-11 w-11 items-center justify-center rounded-full">
+                <Button key={label} asChild variant="footer" size="icon" className="footer-social h-11 w-11 rounded-full">
+                <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
                   <Icon className="h-5 w-5" />
                 </a>
+                </Button>
               ))}
             </div>
-          </div>
-          <div className="md:pl-8">
-            <p className="text-sm uppercase tracking-widest">Join the Portal</p>
-            <p className="mt-2 text-xs leading-relaxed opacity-90">Be the first to access releases, worlds, and multidimensional experiences.</p>
-            {joined ? (
-              <p className="mt-4 rounded-full px-4 py-3 text-xs font-semibold glass-chip">The portal opens soon — you're on the list.</p>
-            ) : (
-              <form className="portal-form mt-4 flex items-center rounded-full pr-1" onSubmit={(e) => { e.preventDefault(); setJoined(true); }}>
-                <input required type="email" placeholder="Enter your email" aria-label="Email address" className="h-11 w-full bg-transparent px-4 text-sm outline-none placeholder:opacity-70" />
-                <Button type="submit" variant="ghost" size="icon" className="rounded-full" aria-label="Join the portal"><ArrowRight /></Button>
-              </form>
-            )}
           </div>
         </footer>
       </section>

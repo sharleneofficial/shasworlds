@@ -103,6 +103,12 @@
   --contact-link-hover: linear-gradient(135deg, #E06A9C 0%, #C2437D 100%);
   --creation-heading-background: #FFFFFF;
   --creation-heading-foreground: #34313A;
+  --footer-background: oklch(1 0 0);
+  --footer-foreground: oklch(0.31 0.015 320);
+  --footer-accent: oklch(0.48 0.12 355);
+  --footer-hover: oklch(0.95 0.025 350);
+  --footer-border: oklch(0.89 0.023 330);
+  --footer-shadow: 0 12px 36px -16px color-mix(in oklab, var(--footer-foreground) 30%, transparent);
 }
 
 @layer base {
@@ -226,11 +232,18 @@
 .portal-outline:hover { background: rgb(255 110 199 / 30%); color: #fff; }
 .footer-panel { background: color-mix(in srgb, var(--neon-pink) 62%, #FFF0F8); border: 1.5px solid rgb(255 209 234 / 70%); backdrop-filter: blur(16px) saturate(120%); box-shadow: 0 0 24px rgb(255 110 199 / 28%); }
 .footer-panel .social-orb { background: rgb(255 110 199 / 30%); box-shadow: 0 0 14px rgb(255 110 199 / 60%); }
+.footer-light { background: var(--footer-background); color: var(--footer-foreground); border-color: var(--footer-border); box-shadow: var(--footer-shadow); backdrop-filter: none; }
+.about-section .footer-light p { text-shadow: none; }
+.footer-link { background: transparent; color: var(--footer-accent); border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s; }
+.footer-link:hover, .footer-link:focus-visible { background: var(--footer-hover); color: var(--footer-accent); border-color: var(--footer-border); box-shadow: none; }
+.footer-social { background: var(--footer-hover); border-color: var(--footer-border); }
+.footer-social:hover { border-color: var(--footer-accent); }
+@media (min-width: 768px) { .footer-connect { border-left: 1px solid var(--footer-border); } }
 .portal-form { border: 1.5px solid #ffd1ea; background: rgb(190 40 140 / 55%); backdrop-filter: blur(16px) saturate(160%); box-shadow: 0 0 12px rgb(255 110 199 / 45%); color: #fff; }
 
-/* The Story Arc sits on a calm white zone: solid candy-pink cards float on white, giving the page one continuous white breath between the artwork tiles and the vivid garden. */
-#saga { background: #FFFFFF; color: var(--creation-heading-foreground); }
-#saga .glow-heading { color: var(--creation-heading-foreground); text-shadow: none; }
+/* Lilac frames the pink chapters; the white footer provides the final quiet contrast. */
+#saga { background: var(--story-background); color: var(--story-foreground); }
+#saga .glow-heading { color: var(--story-foreground); text-shadow: none; }
 #saga .saga-card { background: linear-gradient(135deg, #F47BB4 0%, #EE5FA5 100%); border-color: rgb(255 255 255 / 60%); color: #fff; box-shadow: 0 16px 36px -18px rgb(238 95 165 / 60%); }
 #saga .vault-icon { background: rgb(255 255 255 / 16%); border-color: rgb(255 255 255 / 55%); color: #fff; box-shadow: none; }
 #saga .saga-thumb { border-color: rgb(255 255 255 / 60%); }
