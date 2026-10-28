@@ -5,4 +5,3 @@
 - [x] Update hero text and remove inactive footer signup.
 - [x] Balance purple Story Arc with a white footer and refined link states.
 - [x] Verify footer links and desktop/mobile layouts.
-- [x] Balance the lower page with rose/turquoise Story Arc, crisp garden colors and a luminous glass footer; verify layouts.
