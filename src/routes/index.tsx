@@ -76,12 +76,12 @@ function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-center overflow-hidden">
+      <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-end overflow-hidden">
         <img src={hero.url} alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
-        <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-24 pt-32 md:px-10">
+        <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-28 pt-32 md:px-10">
           <h1 className="hero-title text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none">Sha&apos;s Worlds</h1>
           <p className="hero-tagline mt-6 max-w-xl text-2xl font-semibold leading-snug sm:text-3xl">
-            Beyond imagination<br />into Creation
+            Beyond imagination
           </p>
           <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
             Music. Film. Fashion. Technology.
