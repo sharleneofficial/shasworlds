@@ -80,7 +80,7 @@
   --vault-scrim: linear-gradient(90deg, rgb(231 92 150 / 65%) 0%, rgb(229 118 173 / 20%) 40%, transparent 60%), linear-gradient(180deg, transparent 55%, rgb(229 118 173 / 28%) 80%, rgb(203 123 172 / 42%) 100%);
   --hero-foreground: #FFFFFF;
   --hero-shadow: 0 2px 18px rgb(60 0 60 / 55%);
-  --hero-scrim: linear-gradient(90deg, rgb(70 5 70 / 55%) 0%, rgb(70 5 70 / 20%) 55%, transparent 100%);
+  --hero-scrim: linear-gradient(100deg, rgb(214 51 132 / 30%) 0%, rgb(214 51 132 / 10%) 42%, transparent 65%), linear-gradient(180deg, transparent 55%, rgb(190 40 120 / 18%) 100%);
   --pink-glow: 0 0 18px color-mix(in srgb, var(--neon-pink) 70%, transparent), 0 0 46px color-mix(in srgb, var(--neon-pink) 35%, transparent);
   --shadow-soft: 0 10px 30px -12px rgb(40 0 60 / 45%);
   --shadow-glow: 0 16px 40px -14px rgb(40 0 60 / 55%);
