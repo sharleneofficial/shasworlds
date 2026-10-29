@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Lock, Film, Shirt, Orbit, ArrowRight, Youtube, Instagram, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/sha-cinematic.png.asset.json";
+import hero from "@/assets/sha-hero-new-earth.png.asset.json";
 import epRoom from "@/assets/ep-room.png.asset.json";
 import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
 import worldMusic from "@/assets/world-music.jpg";
