@@ -83,8 +83,8 @@ function Index() {
           <p className="hero-tagline mt-6 max-w-xl text-2xl font-semibold leading-snug sm:text-3xl">
             Beyond imagination
           </p>
-          <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
-            Music. Film. Fashion. Technology.
+          <p className="hero-emphasis mt-5 max-w-xl text-sm font-semibold uppercase leading-relaxed tracking-[0.28em] sm:text-base">
+            Music · Film · Fashion · Technology
           </p>
           <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">Step into the higher timelines.</p>
           <div className="mt-9">
