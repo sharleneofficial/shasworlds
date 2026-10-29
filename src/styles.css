@@ -139,6 +139,7 @@
 .cinematic-hero { color: var(--hero-foreground); }
 .hero-title { font-family: var(--font-hero); font-weight: 400; color: #fff; text-shadow: 0 4px 24px rgb(40 20 60 / 35%); line-height: 1.05; letter-spacing: 0.01em; }
 .hero-tagline { text-shadow: var(--hero-shadow); }
+.hero-emphasis { color: #fff; text-shadow: 0 0 14px rgb(255 110 199 / 65%), 0 0 34px rgb(255 46 154 / 35%), var(--hero-shadow); }
 .hero-sub { text-shadow: var(--hero-shadow); opacity: 0.92; }
 .hero-scroll { border: 1px solid var(--glass-border); border-radius: 50%; padding: 10px; background: var(--glass); backdrop-filter: blur(8px); color: #fff; }
 
