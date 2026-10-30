@@ -13,3 +13,4 @@
 - Mount the shared SiteHeader in the root layout so homepage and standalone content pages have consistent navigation.
 - Keep contact destinations in src/lib/contact-links.ts so the contact page preserves the existing live site's links independently of homepage social destinations.
 - Render the navigation brand as text using the brand font token independently of the hero font; avoid bespoke letter graphics.
+- Serve uploaded hero videos and extracted still-frame posters through asset pointers; use the native video poster to keep the hero visible while playback loads.
