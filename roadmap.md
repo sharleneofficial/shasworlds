@@ -11,3 +11,4 @@
 - [x] Revise the banner cities using the homepage city reference and inspect the result.
 - [x] Simplify navigation lettering and revise banner wording with a distant mystical city.
 - [x] Restore the banner's clouded sunset sky without changing the original single-layer city or wording.
+- [ ] Replace the hero image with the uploaded looping video and show a still frame until playback loads.
