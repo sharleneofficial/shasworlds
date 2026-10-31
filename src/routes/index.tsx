@@ -1,267 +1,406 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Lock, Film, Shirt, Orbit, ArrowRight, Youtube, Instagram, Disc3, AudioWaveform, CircleHelp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import hero from "@/assets/sha-hero-new-earth.png.asset.json";
-import heroVideo from "@/assets/hero-clip.mp4.asset.json";
-import heroWebm from "@/assets/hero-clip.webm.asset.json";
-import heroPoster from "@/assets/hero-poster.jpg.asset.json";
-import epRoom from "@/assets/ep-room.png.asset.json";
-import vaultRoom from "@/assets/vault-pink-staircase.png.asset.json";
-import worldMusic from "@/assets/world-music.jpg";
-import worldFilm from "@/assets/world-film.jpg";
-import worldFashionAsset from "@/assets/world-fashion-runway-4.png.asset.json";
-const worldFashion = worldFashionAsset.url;
-import worldTech from "@/assets/world-tech.jpg";
+import { AlbumCover } from "@/components/album-cover";
+import { FooterContent } from "@/components/site-footer";
+import { ArrowRight, ArrowUpRight, Bell, LockIcon, Sparkle } from "@/components/sw-icons";
 import { tracks } from "@/lib/tracks";
-import pypdVideo from "@/assets/pypd-space.mp4.asset.json";
-import stopVideo from "@/assets/stop-pilot.mp4.asset.json";
-import profile from "@/assets/sha-about-frameless.jpg";
-import aboutBg from "@/assets/about-bright-pink.jpg";
-import cover01Asset from "@/assets/track-01-sealed.jpg.asset.json";
-import cover02Asset from "@/assets/track-02-sealed.jpg.asset.json";
-import cover03Asset from "@/assets/track-03-sealed.jpg.asset.json";
-import cover04Asset from "@/assets/track-04-sealed.jpg.asset.json";
-
-// Sealed covers: the blur is baked into the files, so the sharp art is never online until a track is published.
-const covers = [cover01Asset.url, cover02Asset.url, cover03Asset.url, cover04Asset.url];
+import heroPoster from "@/assets/sw/hero.webp";
+import heroVideo1080 from "@/assets/sw/hero-1080.mp4";
+import heroVideo720 from "@/assets/sw/hero-720.mp4";
+import vault from "@/assets/sw/vault.webp";
+import dome from "@/assets/sw/dome.webp";
+import aboutCity from "@/assets/sw/about-city.webp";
+import shaCutout from "@/assets/sw/sha-cutout.webp";
+import blurMusic from "@/assets/sw/blur-music.webp";
+import blurFashion from "@/assets/sw/blur-fashion.webp";
+import blurFilm from "@/assets/sw/blur-film.webp";
+import blurTech from "@/assets/sw/blur-tech.webp";
+import blurPink from "@/assets/sw/blur-pink.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Sha's Worlds — Where Creativity Meets Consciousness" },
-      { name: "description", content: "SHA: music, film, fashion and immersive technology. One multidimensional world. The Debut EP transmits sequentially starting January." },
+      {
+        name: "description",
+        content:
+          "SHA: music, film, fashion and immersive technology. One multidimensional world. The Debut EP transmits sequentially starting January.",
+      },
       { property: "og:title", content: "Sha's Worlds — Where Creativity Meets Consciousness" },
-      { property: "og:description", content: "The Debut EP transmits sequentially starting January. Enter the world." },
+      {
+        property: "og:description",
+        content: "The Debut EP transmits sequentially starting January. Enter the world.",
+      },
       { property: "og:url", content: "https://shasworlds.com/" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://shasworlds.com/og-shasworlds.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: "https://shasworlds.com/og-shasworlds.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://shasworlds.com/" }],
+    links: [
+      { rel: "canonical", href: "https://shasworlds.com/" },
+      { rel: "preload", as: "image", href: heroPoster, type: "image/webp" },
+    ],
   }),
   component: Index,
 });
 
-const worlds = [
-  { icon: AudioWaveform, title: "Music", img: worldMusic, text: "Sound as frequency. Elevated music that awakens, heals, and expands." },
-  { icon: Shirt, title: "Fashion", img: worldFashion, text: "Wear the future. High-fashion as expression, identity, and art." },
-  { icon: Film, title: "Film & Narrative", img: worldFilm, text: "Stories that shift realities. Cinematic worlds that mirror the journey within." },
-  { icon: Orbit, title: "Immersive Technology", img: worldTech, text: "Build the new Earth. Immersive experiences that connect, transform, and elevate." },
+// Sealed covers: the art is pre-blurred and blurred again in CSS, so no sharp art ships until release.
+const trackCovers = [blurMusic, blurFashion, blurFilm, blurTech];
+const trackLabels = [
+  "Track 01",
+  "Track 02 · Releasing next",
+  "Track 03 · Coming soon",
+  "Track 04 · Coming soon",
 ];
 
-const saga: { n: string; tag: string; title: string; text: string; img: string | null; video?: string; imgRight: string | null; locked: boolean; mystery: boolean; featured: boolean; href?: string; links?: { label: string; href: string }[] }[] = [
-  { n: "??", tag: "The Ultimate Unfolding", title: "PYPD & The NDA Album", text: "The ultimate publication and personal unfolding. The journey will reveal all.", img: null, video: pypdVideo.url, imgRight: null, locked: false, mystery: true, featured: false, href: "https://pypd.shasworlds.com/" },
-  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: epRoom.url, locked: true, mystery: false, featured: false },
-  { n: "??", tag: "Coming Soon", title: "The Next Chapter", text: "Details remain encrypted. The next frequency is being prepared.", img: null, imgRight: hero.url, locked: true, mystery: false, featured: false },
-  { n: "02", tag: "Sha's First Publication", title: "4-Track Debut EP", text: "The rollout of four transmissions unlocking frequencies, themes, and deeper layers of SHA's multidimensional identity.", img: profile, imgRight: vaultRoom.url, locked: false, mystery: false, featured: true },
-  // STOP publication: same Listen / Watch / Collect destinations as the live shasworlds.com release page.
-  { n: "01", tag: "Released as Sharlene", title: "STOP — The Prequel", text: "Released under the artist identity Sharlene (separate Spotify/VEVO). The awakening from limitation to becoming SHA.", img: null, video: stopVideo.url, imgRight: null, locked: false, mystery: false, featured: false, links: [
-    { label: "Listen", href: "https://open.spotify.com/track/6VmS6D7vxrZAknL9dm9V2B" },
-    { label: "Watch", href: "https://www.youtube.com/@ShasWorldsVEVO" },
-    { label: "Collect", href: "https://www.tensor.trade/trade/stop" },
-  ] },
-];
-
-const XIcon = (p: { className?: string }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={p.className} aria-hidden><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3L18.9 2Zm-1.2 18h1.9L6.4 3.9H4.4L17.7 20Z"/></svg>
-);
-
-// Only X is a confirmed link; others are placeholders until SHA provides URLs.
-const socials = [
-  { label: "X", href: "https://x.com/shasworlds", icon: XIcon },
-  { label: "YouTube", href: "https://www.youtube.com/@ShasWorldsVEVO", icon: Youtube },
-  { label: "Spotify", href: "https://open.spotify.com/album/1uN5nOcxylApUOlYhAkGuH", icon: Disc3 },
-  { label: "Instagram", href: "https://www.instagram.com/shasworlds", icon: Instagram },
+const forms = [
+  {
+    n: "01",
+    title: "Music",
+    text: "Sound as frequency. Elevated music that awakens, heals, and expands.",
+  },
+  {
+    n: "02",
+    title: "Fashion",
+    text: "Wear the future. High-fashion as expression, identity, and art.",
+  },
+  {
+    n: "03",
+    title: "Film & Narrative",
+    text: "Stories that shift realities. Cinematic worlds that mirror the journey within.",
+  },
+  {
+    n: "04",
+    title: "Immersive Technology",
+    text: "Build the new Earth. Immersive experiences that connect, transform, and elevate.",
+  },
 ];
 
 function Index() {
+  const live = tracks.find((t) => !t.isLocked);
+
   return (
-    <div className="min-h-screen">
+    <main>
       {/* Hero */}
-      <section id="portal" className="cinematic-hero relative isolate flex min-h-screen w-full items-end overflow-hidden">
-        <video poster={heroPoster.url} autoPlay muted loop playsInline preload="auto" aria-label="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace" className="absolute inset-0 -z-20 h-full w-full object-cover object-center">
-          <source src={heroWebm.url} type="video/webm" />
-          <source src={heroVideo.url} type="video/mp4" />
-        </video>
-        <div className="hero-content mx-auto w-full max-w-7xl px-5 pb-28 pt-32 md:px-10">
-          <h1 className="hero-title text-[clamp(3rem,8vw,6.5rem)] font-medium leading-none">Sha&apos;s Worlds</h1>
-          <p className="hero-tagline mt-6 max-w-xl text-2xl font-semibold leading-snug sm:text-3xl">
-            Beyond imagination
-          </p>
-          <p className="hero-emphasis mt-5 max-w-xl text-sm font-semibold uppercase leading-relaxed tracking-[0.28em] sm:text-base">
-            Music · Film · Fashion · Technology
-          </p>
-          <p className="hero-sub mt-4 max-w-xl text-sm leading-relaxed sm:text-base">Step into the higher timelines.</p>
-          <div className="mt-9">
-            <Button asChild variant="neon" size="lg" className="h-12 rounded-full px-8 uppercase"><a href="#ep">Next Release <ArrowRight /></a></Button>
+      <section id="portal" className="hero">
+        <div className="hero-media">
+          <img
+            src={heroPoster}
+            alt="New Earth coastline framed by luminous arches, flowering gardens and a marble terrace"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <video
+            className="hero-video"
+            poster={heroPoster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          >
+            <source src={heroVideo720} type="video/mp4" media="(max-width: 760px)" />
+            <source src={heroVideo1080} type="video/mp4" />
+          </video>
+        </div>
+        <div className="hero-scrim" />
+        <div className="hero-content">
+          <div style={{ maxWidth: 640 }}>
+            <p className="tagline">
+              <span>
+                Music
+                <Sparkle style={{ color: "var(--lilac-soft)" }} />
+                Film
+              </span>
+              <span className="tag-sep">
+                <Sparkle style={{ color: "var(--sparkle-pink)" }} />
+              </span>
+              <span>
+                Fashion
+                <Sparkle style={{ color: "var(--lilac-soft)" }} />
+                Technology
+              </span>
+            </p>
+            <h1 className="display-xl">Sha&apos;s Worlds</h1>
+            <p className="hero-lead">Beyond imagination.</p>
+            <p className="hero-sub">Step into the higher timelines.</p>
+            <div style={{ marginTop: 40, display: "flex", flexWrap: "wrap", gap: 14 }}>
+              <Button asChild variant="pill" size="pill">
+                <a href="#ep">
+                  Next release
+                  <ArrowRight />
+                </a>
+              </Button>
+              <Button asChild variant="pillOutline" size="pill">
+                <Link to="/story-arc">The Story Arc</Link>
+              </Button>
+            </div>
           </div>
         </div>
-        <a href="#ep" aria-label="Discover the Debut EP" className="hero-scroll absolute bottom-6 left-1/2 -translate-x-1/2"><ArrowRight className="h-5 w-5 rotate-90" /></a>
       </section>
 
-      {/* EP */}
-      <section id="ep" className="ep-section relative isolate scroll-mt-24 overflow-hidden">
-        <div className="ep-room-frame absolute inset-y-0 right-0 -z-20 w-full overflow-hidden lg:w-[62%]">
-          <img src={vaultRoom.url} alt="" aria-hidden="true" loading="lazy" className="ep-room-art h-full w-full object-cover" />
-        </div>
-        <div className="ep-scrim absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-5 pb-6 pt-16">
-          <div className="max-w-md">
-            <p className="eyebrow eyebrow-pill text-xs uppercase">The Debut EP</p>
-            <h2 className="glow-heading mt-4 font-display text-3xl font-medium uppercase md:text-4xl">4-Track Rollout Vault</h2>
-            <p className="mt-5 text-sm leading-relaxed">
-              The rollout begins with four transmissions — each one unlocking a frequency, a theme, and a deeper layer of SHA's multidimensional identity.
+      {/* Status strip */}
+      <div className="strip">
+        <div className="strip-inner">
+          <div className="strip-group">
+            <p className="strip-item">
+              <span aria-hidden="true" className="live-dot" />
+              <span className="strip-label">Now transmitting</span>{" "}
+              <span className="strip-dash" style={{ color: "var(--ink-soft)" }}>
+                —
+              </span>{" "}
+              <span style={{ color: "var(--rose)" }}>Track 01 unlocks January</span>
             </p>
-            <p className="mt-4 text-sm leading-relaxed">
-              Tracks will be released monthly, leading up to the full EP and an expanded body of work that spans across music, film, fashion and immersive experiences.
-            </p>
-            <p className="eyebrow mt-8 text-xs uppercase">Track Highlights</p>
+            {live?.preSaveUrl ? (
+              <a className="strip-alert" href={live.preSaveUrl} target="_blank" rel="noreferrer">
+                <Bell />
+                Pre-save Track 01
+              </a>
+            ) : (
+              <p className="strip-alert">
+                <Bell />
+                Pre-save link coming soon
+              </p>
+            )}
           </div>
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {tracks.map((t, index) => (
-              <article key={t.label} className={`vault-card vault-${index + 1} lift relative isolate overflow-hidden rounded-xl p-4 ${t.isLocked ? "" : "vault-live"}`}>
-                <div className="flex h-14 items-center justify-end pb-3">
-                  {!t.isLocked && <p className="release-stamp"><span>Coming in</span><strong>January</strong></p>}
-                </div>
-                <div className="vault-cover relative aspect-square w-full overflow-hidden rounded-lg">
-                  <div role="presentation" onContextMenu={(e) => e.preventDefault()} onDragStart={(e) => e.preventDefault()} className="sealed-cover h-full w-full" style={{ backgroundImage: `url(${covers[index]})` }} />
-                </div>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="vault-icon flex h-7 w-7 shrink-0 items-center justify-center rounded-full">
-                    {t.isLocked ? <Lock className="h-3.5 w-3.5" /> : <AudioWaveform className="h-4 w-4" />}
-                  </span>
-                  <h3 className="font-sans text-xs uppercase opacity-80">{t.label}</h3>
-                </div>
-                <p className="mt-1 text-base font-semibold">{t.isLocked ? "Locked / Encrypted" : "Unlocking January"}</p>
-                {!t.isLocked ? (
-                  <p className="vault-status mt-1 text-[11px] uppercase">Coming in January</p>
-                ) : (
-                  <p className={`vault-status mt-1 text-[11px] uppercase ${index === 1 ? "transmitting" : ""}`}>
-                    {index === 1 ? "Releasing Next" : "Coming Soon"}
-                  </p>
-                )}
-                <p className="mt-3 text-xs leading-relaxed opacity-90">{t.details}</p>
-                {!t.isLocked && (
-                  t.preSaveUrl ? (
-                    <Button asChild variant="neon" className="mt-4 rounded-full uppercase"><a href={t.preSaveUrl} target="_blank" rel="noreferrer">Pre-Save</a></Button>
+          <a
+            className="pypd-link"
+            href="https://pypd.shasworlds.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Sparkle
+              size={14}
+              style={{
+                color: "var(--lilac)",
+                filter: "drop-shadow(0 0 5px rgb(156 134 232 / 80%))",
+              }}
+            />
+            Enter PYPD World
+            <ArrowUpRight size={13} style={{ opacity: 0.6 }} />
+          </a>
+        </div>
+      </div>
+
+      {/* 4-track vault */}
+      <section id="ep" className="vault">
+        <img
+          className="vault-bg"
+          src={vault}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="vault-scrim" aria-hidden="true" />
+        <div className="shell" style={{ position: "relative" }}>
+          <div className="vault-copy">
+            <p className="eyebrow">The Debut EP</p>
+            <h2 className="display-lg">4-Track Rollout Vault</h2>
+            <p className="body">
+              The rollout begins with four transmissions — each one unlocking a frequency, a theme,
+              and a deeper layer of SHA&apos;s multidimensional identity.
+            </p>
+            <p className="body">
+              Tracks release monthly, leading up to the full EP and an expanded body of work across
+              music, film, fashion and immersive experiences.
+            </p>
+          </div>
+          <div className="vault-grid">
+            {tracks.map((t, i) => (
+              <article key={t.label} className={`track ${t.isLocked ? "" : "is-live"}`}>
+                <div className="tk-cover" onContextMenu={(e) => e.preventDefault()}>
+                  <img
+                    className="art"
+                    src={trackCovers[i]}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                  />
+                  {t.isLocked ? (
+                    <div className="cover-center">
+                      <span className="lock-chip">
+                        <LockIcon size={20} />
+                      </span>
+                    </div>
                   ) : (
-                    <p className="mt-3 text-[11px] uppercase opacity-70">Pre-save link coming soon</p>
-                  )
-                )}
+                    <p className="tk-badge">Coming in January</p>
+                  )}
+                </div>
+                <div className="tk-text">
+                  <p className={`tk-label ${i >= 2 ? "muted" : ""}`}>{trackLabels[i] ?? t.label}</p>
+                  <h3 className="tk-title">{t.isLocked ? "Encrypted" : t.status}</h3>
+                  <p className="tk-desc">{t.details}</p>
+                  {!t.isLocked && (
+                    <p className="tk-presave">
+                      <Bell size={16} />
+                      {t.preSaveUrl ? (
+                        <a href={t.preSaveUrl} target="_blank" rel="noreferrer">
+                          Pre-save now
+                        </a>
+                      ) : (
+                        "Pre-save link coming soon"
+                      )}
+                    </p>
+                  )}
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Worlds */}
-      <section id="worlds" className="scroll-mt-24">
-        <div className="creation-heading-band px-5 pb-12 pt-20">
-          <h2 className="text-center font-display text-3xl font-medium uppercase md:text-4xl">4 Forms of Creation</h2>
-          <p className="mt-3 text-center text-sm uppercase sm:text-base">One vision. Infinite expressions.</p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4">
-          {worlds.map(({ icon: Icon, title, img, text }) => (
-            <article key={title} className="world-tile relative isolate overflow-hidden">
-              <img src={img} alt={title} loading="lazy" width={800} height={1000} className="h-[440px] w-full object-cover sm:h-[500px] lg:h-[580px]" />
-              <div className="world-tile-overlay absolute inset-0 flex flex-col items-center justify-end p-6 pb-10 text-center">
-                <div className="vault-icon flex h-14 w-14 items-center justify-center rounded-full">
-                  <Icon className="h-6 w-6" />
+      {/* Four forms of creation */}
+      <section id="worlds" className="forms">
+        <div className="shell">
+          <div className="forms-head">
+            <div>
+              <p className="eyebrow">One vision</p>
+              <h2 className="display-lg">Four Forms of Creation</h2>
+            </div>
+            <p className="kicker" style={{ margin: 0, letterSpacing: "0.24em" }}>
+              Infinite expressions
+            </p>
+          </div>
+          <div className="forms-img">
+            <img
+              src={dome}
+              alt="A pink lounge under a glass dome filled with rainbow sound waves, framed by rainbow arches and palms"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="forms-grid">
+            {forms.map((f) => (
+              <article key={f.n}>
+                <div className="form-head">
+                  <span>{f.n}</span>
+                  <h3>{f.title}</h3>
                 </div>
-                <h3 className="mt-4 text-sm font-extrabold uppercase">{title}</h3>
-                <p className="mt-2 text-xs leading-relaxed">{text}</p>
-              </div>
-            </article>
-          ))}
+                <p className="form-text">{f.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Saga */}
-      <section id="saga" className="relative isolate scroll-mt-24 px-5 pb-24 pt-20">
-        <div className="relative mx-auto max-w-4xl">
-          <div className="saga-rail" aria-hidden="true" />
-          <h2 className="glow-heading text-center font-display text-3xl font-medium uppercase md:text-4xl">The Story Arc</h2>
-          <p className="mt-3 text-center text-sm uppercase sm:text-base">Origins. Evolution. Expansion.</p>
-          <ol className="relative mt-12 space-y-5 sm:pl-14">
-            {saga.map((m, i) => {
-              const body = (
-                <>
-                  {m.video ? (
-                    <video src={m.video} autoPlay muted loop playsInline preload="metadata" aria-hidden="true" className={`saga-thumb shrink-0 rounded-xl object-cover ${m.mystery ? "h-28 w-36 sm:h-36 sm:w-52" : "h-20 w-24"}`} />
-                  ) : m.img ? (
-                    <img src={m.img} alt="" aria-hidden="true" loading="lazy" className="saga-thumb h-20 w-24 shrink-0 rounded-xl object-cover" />
-                  ) : (
-                    <div className="vault-icon flex h-20 w-24 shrink-0 items-center justify-center rounded-xl"><Lock className="h-6 w-6" /></div>
-                  )}
-                  <div className="min-w-0 flex-1">
-                    <p className="saga-tag text-[10px] font-bold uppercase opacity-75">{m.n} · {m.tag}</p>
-                    <h3 className="mt-1 text-xl font-extrabold">{m.title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed opacity-90">{m.text}</p>
-                    {m.href && <Button asChild variant="neon" size="sm" className="mt-3 rounded-full uppercase"><a href={m.href} target="_blank" rel="noreferrer">Enter the World <ArrowRight /></a></Button>}
-                    {m.links && (
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        {m.links.map((l) => (
-                          <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="saga-link text-[10px] font-bold uppercase">{l.label}</a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                  {m.imgRight && (
-                    <img src={m.imgRight} alt="" aria-hidden="true" loading="lazy" className={`saga-thumb hidden h-20 w-24 shrink-0 rounded-xl object-cover sm:block ${m.locked ? "saga-thumb-blur" : ""}`} />
-                  )}
-                  {m.mystery && (
-                    <div className="vault-icon hidden h-14 w-14 shrink-0 items-center justify-center rounded-full sm:flex"><CircleHelp className="h-6 w-6" /></div>
-                  )}
-                </>
-              );
-              return (
-                <li key={i} className={`saga-card lift flex items-center gap-5 rounded-2xl p-5 ${m.locked ? "saga-locked" : ""} ${m.featured ? "saga-card-featured" : ""}`}>
-                  {body}
-                </li>
-              );
-            })}
-          </ol>
+      {/* Story arc teaser */}
+      <section id="saga" className="sec-pad">
+        <div className="shell saga-wrap">
+          <div className="saga-covers">
+            <div>
+              <AlbumCover art={blurPink}>
+                <span className="lock-chip">
+                  <LockIcon />
+                </span>
+              </AlbumCover>
+            </div>
+            <div className="is-main">
+              <AlbumCover art={vault} spinning />
+            </div>
+            <div>
+              <AlbumCover art={heroPoster}>
+                <span className="lock-chip">
+                  <LockIcon />
+                </span>
+              </AlbumCover>
+            </div>
+          </div>
+          <div className="saga-copy">
+            <p className="eyebrow">The Journey</p>
+            <h2 className="display-lg">The Story Arc</h2>
+            <p className="kicker tight">Origins · Evolution · Expansion</p>
+            <ol className="chapters">
+              <li className="is-live">
+                <span className="n">01</span>
+                <span className="t">4-Track Debut EP</span>
+                <span className="s">January</span>
+              </li>
+              <li className="is-locked">
+                <span className="n">02</span>
+                <span className="t">The Next Chapter</span>
+                <span className="s">Encrypted</span>
+              </li>
+              <li className="is-locked">
+                <span className="n">03</span>
+                <span className="t">The Next Chapter</span>
+                <span className="s">Encrypted</span>
+              </li>
+              <li>
+                <span className="n star">
+                  <Sparkle size={16} />
+                </span>
+                <span className="t">PYPD &amp; The NDA Album</span>
+                <span className="s">The unfolding</span>
+              </li>
+              <li>
+                <span className="n pre">Pre</span>
+                <span className="t">
+                  STOP <span className="by">— by Sharlene</span>
+                </span>
+                <span className="s">Released</span>
+              </li>
+            </ol>
+            <Button asChild variant="pill" size="pill" className="mt-10">
+              <Link to="/story-arc">
+                Enter the Story Arc
+                <ArrowRight />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* About + Footer */}
-      <section id="about" className="about-section relative isolate scroll-mt-24 overflow-hidden px-5 pb-10 pt-24">
-        <img src={aboutBg} style={{ filter: "saturate(0.8) brightness(0.96)" }} alt="" aria-hidden="true" loading="lazy" width={1376} height={768} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 md:flex-row md:items-start">
-          <img src={profile} alt="SHA portrait" loading="lazy" className="about-portrait h-60 w-60 shrink-0 rounded-full object-cover md:h-72 md:w-72" />
-          <div className="text-center md:text-left">
-            <h2 className="font-display text-3xl font-light uppercase md:text-4xl">About SHA</h2>
-            <p className="mt-4 leading-relaxed opacity-95">SHA is a multidimensional creator, wayshower, and visionary architect of New Earth. She merges music, film, fashion, and immersive technology to channel frequencies that awaken consciousness and elevate culture.</p>
-            <p className="mt-4 leading-relaxed opacity-95">Through art and innovation, SHA builds worlds that remember who we are — inspiring a global movement of creators and dreamers to embody love, freedom, and unity in the new era.</p>
-            <Button asChild variant="outline" size="lg" className="portal-outline mt-7 h-12 rounded-full px-8 uppercase"><Link to="/contact">Contact Sha <ArrowRight /></Link></Button>
-          </div>
-        </div>
-        <footer id="connect" className="footer-panel footer-themed relative mx-auto mt-20 grid max-w-6xl scroll-mt-24 gap-8 overflow-hidden rounded-lg px-6 py-8 sm:px-8 md:grid-cols-[1.4fr_1fr]">
-          <div className="footer-art" aria-hidden="true" />
-          <div className="relative">
-            <p className="font-display text-3xl font-light uppercase">Sha&apos;s Worlds</p>
-            <p className="mt-3 text-sm opacity-90">Where creativity meets consciousness.</p>
-            <div className="mt-4 flex flex-wrap gap-4 text-xs">
-              <Button asChild variant="footer" size="sm"><a href="https://pypd.shasworlds.com/" target="_blank" rel="noreferrer">PYPD World</a></Button>
-              <Button asChild variant="footer" size="sm"><Link to="/contact">Contact</Link></Button>
+      {/* About + footer share the city image so the marble floor runs into the footer */}
+      <div className="city">
+        <img
+          className="city-bg"
+          src={aboutCity}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="city-veil" aria-hidden="true" />
+        <section id="about" className="about-sec">
+          <img
+            className="about-cut"
+            src={shaCutout}
+            alt="SHA, rainbow-haired, gazing upward"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="about-inner">
+            <div>
+              <p className="eyebrow">Intergalactic creator</p>
+              <h2 className="display-lg">About SHA</h2>
+              <p className="about-lead">
+                SHA is a multidimensional creator, wayshower, and visionary architect of New Earth.
+                She merges music, film, fashion, and immersive technology to channel frequencies
+                that awaken consciousness and elevate culture.
+              </p>
+              <p className="about-body">
+                Through art and innovation, SHA builds worlds that remember who we are — inspiring a
+                global movement of creators and dreamers to embody love, freedom, and unity in the
+                new era.
+              </p>
+              <Button asChild variant="pillOutline" size="pill" className="mt-10">
+                <Link to="/contact">
+                  Contact SHA
+                  <ArrowRight />
+                </Link>
+              </Button>
             </div>
-            <p className="mt-4 text-xs opacity-80">© {new Date().getFullYear()} SHA. All Worlds Reserved.</p>
           </div>
-          <div className="footer-connect relative text-center md:px-6">
-            <p className="text-sm uppercase tracking-widest">Connect</p>
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
-              {socials.map(({ label, href, icon: Icon }) => (
-                <Button key={label} asChild variant="footer" size="icon" className="footer-social h-11 w-11 rounded-full">
-                <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                  <Icon className="h-5 w-5" />
-                </a>
-                </Button>
-              ))}
-            </div>
-          </div>
+        </section>
+        <footer id="connect" className="site-footer">
+          <FooterContent />
         </footer>
-      </section>
-    </div>
+      </div>
+    </main>
   );
 }
