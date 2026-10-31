@@ -337,9 +337,9 @@ main { overflow-x: clip; }
 
   /* hero: image on top, copy below */
   .hero { flex-direction: column; align-items: stretch; min-height: 0; aspect-ratio: auto; max-height: none; }
-  .hero-media { position: relative; inset: auto; height: auto; aspect-ratio: 4 / 3; }
-  .hero-media img, .hero-media video { object-position: 62% center; }
-  .hero-scrim { inset: auto 0 auto 0; top: 0; height: auto; aspect-ratio: 4 / 3; background: linear-gradient(180deg, rgb(251 246 249 / 55%) 0%, rgb(251 246 249 / 0%) 22%, rgb(251 246 249 / 0%) 70%, var(--ground) 100%); }
+  .hero-media { position: relative; inset: auto; height: 520px; }
+  .hero-media img, .hero-media video { object-position: 72% 40%; }
+  .hero-scrim { inset: auto 0 auto 0; top: 0; height: 520px; background: linear-gradient(180deg, rgb(251 246 249 / 55%) 0%, rgb(251 246 249 / 0%) 22%, rgb(251 246 249 / 0%) 70%, var(--ground) 100%); }
   .hero-content { padding: 8px 24px 56px; margin-top: -72px; }
   .tag-sep { display: none; }
   .tagline { flex-direction: column; align-items: flex-start; gap: 10px; }
