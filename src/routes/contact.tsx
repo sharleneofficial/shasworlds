@@ -77,6 +77,8 @@ function ContactPage() {
           className="about-cut"
           src={shaCutout}
           alt="SHA, rainbow-haired, gazing upward"
+          width={900}
+          height={900}
           decoding="async"
         />
         <div className="about-inner">

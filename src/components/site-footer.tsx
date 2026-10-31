@@ -68,6 +68,8 @@ export function SiteFooter({ fadeFrom = "var(--ground)" }: { fadeFrom?: string }
         alt=""
         aria-hidden="true"
         className="footer-bg"
+        width={1376}
+        height={768}
         loading="lazy"
         decoding="async"
       />
