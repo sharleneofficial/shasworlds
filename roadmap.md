@@ -12,3 +12,4 @@
 - [x] Simplify navigation lettering and revise banner wording with a distant mystical city.
 - [x] Restore the banner's clouded sunset sky without changing the original single-layer city or wording.
 - [x] Replace the hero image with the uploaded looping video and show a still frame until playback loads.
+- [ ] Fix mobile hero: 16:9 aspect-ratio and 100svh cap leak into the phone layout and crop/hide the banner.
