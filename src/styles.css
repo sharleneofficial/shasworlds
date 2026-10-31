@@ -125,9 +125,10 @@
 .pill-sm svg { width: 14px; height: 14px; }
 
 /* ---------- Header ---------- */
-.site-header { position: absolute; top: 0; left: 0; right: 0; z-index: 50; color: var(--plum); }
-.site-header.is-solid { position: relative; background: var(--surface); border-bottom: 1px solid rgb(42 20 51 / 12%); }
-.site-header nav.main { max-width: 1280px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+.site-header { position: fixed; top: 14px; left: 0; right: 0; z-index: 50; color: var(--plum); padding: 0 16px; pointer-events: none; }
+.site-header.is-solid { position: sticky; padding-top: 14px; margin-top: 0; top: 0; }
+.site-header nav.main, .site-header .mobile-menu { pointer-events: auto; max-width: 1180px; margin: 0 auto; padding: 14px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border-radius: 999px; background: rgb(255 255 255 / 62%); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border: 1px solid rgb(255 255 255 / 70%); box-shadow: 0 10px 30px -12px rgb(42 20 51 / 22%); }
+.site-header .mobile-menu { margin-top: 8px; border-radius: 24px; }
 .brand-mark { color: var(--plum); text-decoration: none; font-family: var(--font-brand); font-weight: 800; font-size: 26px; line-height: 1; }
 .brand-mark span { display: block; font-size: 9px; letter-spacing: 0.32em; font-weight: 700; margin-top: 5px; }
 .nav-links { display: flex; flex-wrap: wrap; gap: 8px 32px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
